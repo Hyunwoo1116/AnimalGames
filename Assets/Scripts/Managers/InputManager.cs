@@ -25,5 +25,6 @@ public class InputManager : MonoBehaviour
         {
             currentCat.RigidBody.simulated = true;
         }*/
+        //10´ç 0.2
     }
 }
