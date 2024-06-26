@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3055007283381326271}
   - component: {fileID: 9200211082577128984}
   - component: {fileID: -7103832013969415380}
+  - component: {fileID: -3247474871682923701}
   m_Layer: 0
   m_Name: AnimalPrefabs_Step8
   m_TagString: Untagged
@@ -249,5 +250,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae0a29823d9077e49942dfca66ef0a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OriginScale: 0
+--- !u!114 &-3247474871682923701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406235764015956436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4aad44fc57e004bba547f6b1b43e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
