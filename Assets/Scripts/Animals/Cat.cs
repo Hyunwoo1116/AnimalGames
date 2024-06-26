@@ -23,9 +23,7 @@ public class Cat : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Debug.Log(mousePosition);
             float leftBorder = -4.5f;
             float rightBorder = 4.5f;
             mousePosition.z = 0f;
