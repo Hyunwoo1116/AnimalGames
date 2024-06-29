@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void AddGameScore(CatLevel instanceCatLevel)
     {
-        gameScore += (int)instanceCatLevel * 10;
+        gameScore += ((int)instanceCatLevel + 1) * 10;
         updateGameScoreUI();
     }
 
