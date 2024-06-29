@@ -5,10 +5,13 @@ using UnityEngine;
 public class Cat : MonoBehaviour
 {
 
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D catCollider;
     
-    public Rigidbody2D RigidBody => rigidbody ??= this.GetComponent<Rigidbody2D>();
+    public Rigidbody2D RigidBody => catCollider ??= this.GetComponent<Rigidbody2D>();
 
+    private CatMerge catMerge;
+
+    public CatMerge CatMerge => catMerge ??= this.GetComponent<CatMerge>();
 
     public float OriginScale;
     float ReadyScale = 10f;
@@ -45,6 +48,7 @@ public class Cat : MonoBehaviour
         {
             RigidBody.simulated = true;
             GameManager.Instance.NextCats();
+            GameManager.Instance.AddGameScore(CatMerge.CatLevel);
             this.enabled = false;
         }
     }

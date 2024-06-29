@@ -84,6 +84,8 @@ public class CatManager : MonoBehaviour, ICatManager
             CatMerge catMerge = cat.GetComponent<CatMerge>();
             catMerge.CatManager = this;
             catMerge.CatLevel = createModel.catLevel;
+
+            GameManager.Instance.AddGameScore(createModel.catLevel);
             
             return true;
         }

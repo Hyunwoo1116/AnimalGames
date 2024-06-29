@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,9 +12,13 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
-        
 
+    private int gameScore;
+    
     private static GameManager instance = null;
+
+
+    [SerializeField] private TextMeshProUGUI gameScoreUI;
 
     public void Awake()
     {
@@ -36,6 +41,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CatManager.OnGameStart();
+        OnGameStart();
     }
 
 
@@ -47,5 +53,24 @@ public class GameManager : MonoBehaviour
         CatManager.OnNextCat();
         
     }
+
+    public int GetGameScore() => gameScore;
+
+    private void OnGameStart()
+    {
+        gameScore = 0;
+    }
+
+    public void AddGameScore(CatLevel instanceCatLevel)
+    {
+        gameScore += (int)instanceCatLevel * 10;
+        updateGameScoreUI();
+    }
+
+    private void updateGameScoreUI()
+    {
+        gameScoreUI.text = "GameScore : " + gameScore.ToString();
+    }
+
 
 }
