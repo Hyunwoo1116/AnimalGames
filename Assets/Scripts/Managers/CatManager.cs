@@ -86,6 +86,7 @@ public class CatManager : MonoBehaviour, ICatManager
             catMerge.CatLevel = createModel.catLevel;
 
             GameManager.Instance.AddGameScore(createModel.catLevel);
+            cat.transform.localScale = Vector3.one * cat.OriginScale;
             
             return true;
         }
