@@ -19,9 +19,11 @@ public class GoogleAdsenseManager : MonoBehaviour
         {
             // This callback is called once the MobileAds SDK is initialized.
 
-            OnCreateBannerView();
-            OnListenAdEvents();
+            
         });
+
+        OnCreateBannerView();
+        OnListenAdEvents();
 
 
 
@@ -37,6 +39,10 @@ public class GoogleAdsenseManager : MonoBehaviour
         }
 
         bannerView = new BannerView(_adUnitId, AdSize.Banner, AdPosition.Top);
+        AdRequest request = new AdRequest();
+        bannerView.LoadAd(request);
+
+
     }
 
     private void OnListenAdEvents()
