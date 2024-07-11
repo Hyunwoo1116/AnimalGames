@@ -1,0 +1,11 @@
+# ninja log v5
+138	345	7423965315489233	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	8d01b54c73788027
+347	701	7423965318233438	C:/Users/uthyun/Hyunwoo/Study/04.Animals/AnimalGames/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3v4o556j/obj/arm64-v8a/libswappywrapper.so	a065eebbed2ebda7
+1	925	7423965321238657	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	3837e4bd3bbcd265
+94	941	7423965321409537	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	370a69611bda03c1
+55	946	7423965321454673	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	d3eec6a3de98d05d
+37	1050	7423965322482927	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	94334613685c30cc
+115	1081	7423965322804291	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	2329dc7bedd3ec91
+74	1210	7423965324091195	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	c3b97cf72ee480b1
+18	1230	7423965324290875	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	1ab48df914904300
+1231	1479	7423965326166919	C:/Users/uthyun/Hyunwoo/Study/04.Animals/AnimalGames/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3v4o556j/obj/arm64-v8a/libgame.so	3768a7cf5f6d1ff4
