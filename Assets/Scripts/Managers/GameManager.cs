@@ -38,27 +38,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        CatManager.OnGameStart();
-        OnGameStart();
-    }
-
 
     public CatManager CatManager;
 
     public void NextCats()
     {
-
         CatManager.OnNextCat();
-        
     }
 
     public int GetGameScore() => gameScore;
 
-    private void OnGameStart()
+    public void OnGameStart()
     {
         gameScore = 0;
+        CatManager.OnGameStart();
     }
 
     public void AddGameScore(CatLevel instanceCatLevel)
