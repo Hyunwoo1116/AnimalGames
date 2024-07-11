@@ -4,5 +4,9 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/AnimalsGrow.unity
+    guid: 32e5ecd61bc314d4289c41d4f73a6e57
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
