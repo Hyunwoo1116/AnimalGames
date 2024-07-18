@@ -7,17 +7,10 @@ public class CatMerge : MonoBehaviour
     public CatLevel CatLevel { get; set; }
     public ICatManager CatManager { get; set; }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool IsActive = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Start is called before the first frame update
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.TryGetComponent(out CatMerge targetCat))
@@ -33,7 +26,7 @@ public class CatMerge : MonoBehaviour
                 Destroy(targetCat.gameObject);
                 Destroy(gameObject);
             }
-
+            IsActive = true;
         }
     }
 }
