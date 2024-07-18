@@ -21,6 +21,7 @@ public class CatManager : MonoBehaviour, ICatManager
 
     public Queue<CatCreateModel> catQueue = new Queue<CatCreateModel>();
 
+    public SoundManager SoundManager;
     private Cat GetRandomCats()
     {
         int RandomIndex = Random.Range(0, 5);
@@ -76,6 +77,7 @@ public class CatManager : MonoBehaviour, ICatManager
     {
         try
         {
+            SoundManager.PlayMergeSound();
             Cat cat = Instantiate(Cats[(int)createModel.catLevel], GameArea);
             cat.transform.position = createModel.createPosition;
             cat.RigidBody.simulated = true;

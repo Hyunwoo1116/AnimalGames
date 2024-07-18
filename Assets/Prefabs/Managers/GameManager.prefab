@@ -157,9 +157,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectAudio: {fileID: 6373001735659490741}
   backgroundAudio: {fileID: 599888151342879111}
-  backgroundClip: {fileID: 0}
-  effectClipInstance: {fileID: 0}
-  effectClipMerge: {fileID: 0}
+  backgroundClip: {fileID: 8300000, guid: ff3477add19e76040b08beb3620bdbd1, type: 3}
+  effectClipInstance: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+  effectClipMerge: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
   effectSoundVolume: 0
   backgroundSoundVolume: 0
 --- !u!1 &3761296535607232322
@@ -380,7 +380,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour, ISoundManager
@@ -36,5 +38,32 @@ public class SoundManager : MonoBehaviour, ISoundManager
     {
         backgroundSoundVolume = backgroundAudio.volume;
         effectSoundVolume = effectAudio.volume;
+    }
+
+    public void PlayMergeSound()
+    {
+        effectAudio.PlayOneShot(effectClipMerge);
+    }
+    public async Task PlayInstanceSound()
+    {
+        effectAudio.PlayOneShot(effectClipInstance);
+
+        await WaitSoundLength();
+    }
+
+    public void PlayBackgroundSound()
+    {
+        backgroundAudio.clip = backgroundClip;
+        backgroundAudio.Play();
+    }
+    private async Task WaitSoundLength()
+    {
+        float clipLength = effectClipInstance.length;
+        float delayTime = 0f;
+        while (delayTime <= clipLength)
+        {
+            delayTime += 0.01f;
+            await Task.Delay(10);
+        }
     }
 }
