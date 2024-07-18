@@ -15,6 +15,9 @@ public class Cat : MonoBehaviour
 
     public float OriginScale;
     float ReadyScale = 10f;
+    public SoundManager SoundManager => soundManager ??= FindObjectOfType<SoundManager>();
+
+    private SoundManager soundManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +25,9 @@ public class Cat : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    async void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !RigidBody.simulated)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float leftBorder = -4.5f;
@@ -44,9 +47,11 @@ public class Cat : MonoBehaviour
             RigidBody.simulated = false;
         }
 
-        if( Input.GetMouseButtonUp(0))
+        if( Input.GetMouseButtonUp(0) && !RigidBody.simulated)
         {
             RigidBody.simulated = true;
+            await SoundManager.PlayInstanceSound();
+            Debug.Log("SOundEnd");
             GameManager.Instance.NextCats();
             GameManager.Instance.AddGameScore(CatMerge.CatLevel);
             this.enabled = false;
