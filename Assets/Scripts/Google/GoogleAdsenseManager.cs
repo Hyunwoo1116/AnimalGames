@@ -22,10 +22,10 @@ public class GoogleAdsenseManager : MonoBehaviour
             
         });
 
-        OnCreateBannerView();
+        /*OnCreateBannerView();
         OnListenAdEvents();
 
-
+*/
 
     }
 
