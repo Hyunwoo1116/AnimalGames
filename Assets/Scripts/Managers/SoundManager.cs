@@ -44,11 +44,11 @@ public class SoundManager : MonoBehaviour, ISoundManager
     {
         effectAudio.PlayOneShot(effectClipMerge);
     }
-    public async Task PlayInstanceSound()
+    public void PlayInstanceSound()
     {
         effectAudio.PlayOneShot(effectClipInstance);
 
-        await WaitSoundLength();
+        //await WaitSoundLength();
     }
 
 
