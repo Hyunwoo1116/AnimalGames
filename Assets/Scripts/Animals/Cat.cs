@@ -14,7 +14,7 @@ public class Cat : MonoBehaviour
     public CatMerge CatMerge => catMerge ??= this.GetComponent<CatMerge>();
 
     public float OriginScale;
-    float ReadyScale = 10f;
+    float ReadyScale = 30f;
     public SoundManager SoundManager => soundManager ??= FindObjectOfType<SoundManager>();
 
     private SoundManager soundManager;

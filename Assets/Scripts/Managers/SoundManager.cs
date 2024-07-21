@@ -51,6 +51,25 @@ public class SoundManager : MonoBehaviour, ISoundManager
         await WaitSoundLength();
     }
 
+
+    public void SetAudioMute(SoundType type, bool isMute)
+    {
+        switch (type)
+        {
+            case SoundType.None:
+                break;
+            case SoundType.Effect:
+                effectAudio.mute = !isMute;
+                break;
+            case SoundType.Background:
+                backgroundAudio.mute = !isMute;
+                break;
+        }
+    }
+
+
+
+
     public void PlayBackgroundSound()
     {
         backgroundAudio.clip = backgroundClip;
@@ -58,7 +77,7 @@ public class SoundManager : MonoBehaviour, ISoundManager
     }
     private async Task WaitSoundLength()
     {
-        float clipLength = effectClipInstance.length;
+        float clipLength = effectClipInstance.length * 2;
         float delayTime = 0f;
         while (delayTime <= clipLength)
         {
@@ -66,4 +85,12 @@ public class SoundManager : MonoBehaviour, ISoundManager
             await Task.Delay(10);
         }
     }
+
+
+}
+public enum SoundType
+{
+    None,
+    Effect,
+    Background,
 }
