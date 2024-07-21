@@ -20,6 +20,8 @@ public class CatMerge : MonoBehaviour
             {
                 Vector3 centerPosition = Vector3.Lerp(this.transform.position, targetCat.transform.position, 0.5f);
                 Debug.Log($"centerPosition{centerPosition}");
+                if (CatLevel == CatLevel.Level11)
+                    return;
                 CatManager.AddCreateQueue(
                     new CatCreateModel(gameObject, targetCat.gameObject, centerPosition, CatLevel.GetMoveNext())
                     );

@@ -50,7 +50,7 @@ public class Cat : MonoBehaviour
         if( Input.GetMouseButtonUp(0) && !RigidBody.simulated)
         {
             RigidBody.simulated = true;
-            SoundManager.PlayInstanceSound();
+            await SoundManager.PlayInstanceSound(); 
             Debug.Log("SOundEnd");
             GameManager.Instance.NextCats();
             GameManager.Instance.AddGameScore(CatMerge.CatLevel);
