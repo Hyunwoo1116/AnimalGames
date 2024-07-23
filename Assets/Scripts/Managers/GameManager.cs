@@ -38,6 +38,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+#if UNITY_IOS || UNITY_ANDROID
+        Application.targetFrameRate = 60;
+#else
+        QualitySettings.vSyncCount = 1;
+#endif
+
+
+    }
 
     public CatManager CatManager;
 

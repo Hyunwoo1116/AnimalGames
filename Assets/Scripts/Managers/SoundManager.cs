@@ -77,7 +77,7 @@ public class SoundManager : MonoBehaviour, ISoundManager
     }
     private async Task WaitSoundLength()
     {
-        float clipLength = effectClipInstance.length * 2;
+        float clipLength = effectClipInstance.length * 1.1f;
         float delayTime = 0f;
         while (delayTime <= clipLength)
         {

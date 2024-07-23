@@ -77,6 +77,11 @@ public class CatManager : MonoBehaviour, ICatManager
     {
         try
         {
+            if ( createModel.catLevel == 0)
+            {
+                return false;
+            }
+
             SoundManager.PlayMergeSound();
             Cat cat = Instantiate(Cats[(int)createModel.catLevel], GameArea);
             cat.transform.position = createModel.createPosition;
