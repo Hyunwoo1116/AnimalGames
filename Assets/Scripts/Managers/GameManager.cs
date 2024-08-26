@@ -18,7 +18,12 @@ public class GameManager : MonoBehaviour
     private static GameManager instance = null;
 
 
-    [SerializeField] private TextMeshProUGUI gameScoreUI;
+    [SerializeField] 
+    private TextMeshProUGUI gameScoreUI;
+
+    [Header("Managers")]
+    public SoundManager SoundManager;
+    public CatManager CatManager;
 
     public void Awake()
     {
@@ -46,10 +51,10 @@ public class GameManager : MonoBehaviour
         QualitySettings.vSyncCount = 1;
 #endif
 
-
+        OnGameStart();
     }
 
-    public CatManager CatManager;
+    
 
     public void NextCats()
     {
@@ -62,6 +67,7 @@ public class GameManager : MonoBehaviour
     {
         gameScore = 0;
         CatManager.OnGameStart();
+        SoundManager.PlayBackgroundSound();
     }
 
     public void AddGameScore(CatLevel instanceCatLevel)
@@ -75,5 +81,9 @@ public class GameManager : MonoBehaviour
         gameScoreUI.text = "GameScore : " + gameScore.ToString();
     }
 
+    public void OnGameEnd()
+    {
+        
+    }
 
 }

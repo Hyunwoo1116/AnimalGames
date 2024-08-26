@@ -12,8 +12,6 @@
             </intent-filter>
             <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
         </activity>
-      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         
       <meta-data
        android:name="com.google.android.gms.ca-app-pub-3940256099942544~3347511713"

@@ -18,7 +18,7 @@ public class EndCollider : MonoBehaviour
         if (catMerge.IsActive)
         {
             if ((catMerge.transform.position.y - gameObject.transform.position.y) > 0)
-                Debug.Log("GameEnd");
+                GameManager.Instance.OnGameEnd();
         }
         else
         {

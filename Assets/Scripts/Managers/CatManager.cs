@@ -24,7 +24,7 @@ public class CatManager : MonoBehaviour, ICatManager
     public SoundManager SoundManager;
     private Cat GetRandomCats()
     {
-        int RandomIndex = Random.Range(1, 2);
+        int RandomIndex = Random.Range(1, 5);
 
         Cat cat = Instantiate(Cats[RandomIndex]);
         CatMerge catMerge = cat.GetComponent<CatMerge>();
