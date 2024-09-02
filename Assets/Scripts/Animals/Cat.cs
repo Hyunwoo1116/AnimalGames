@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cat : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class Cat : MonoBehaviour
     public SoundManager SoundManager => soundManager ??= FindObjectOfType<SoundManager>();
 
     private SoundManager soundManager;
+
+    public GameObject CatGauidLine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,7 @@ public class Cat : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && !RigidBody.simulated)
         {
+            // 수정 필요 범위에서 벗어나지 않게 설정해야댐.
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float leftBorder = -4.5f;
             float rightBorder = 4.5f;
@@ -49,6 +54,7 @@ public class Cat : MonoBehaviour
 
         if( Input.GetMouseButtonUp(0) && !RigidBody.simulated)
         {
+            CatGauidLine.SetActive(false);
             RigidBody.simulated = true;
             await SoundManager.PlayInstanceSound(); 
             GameManager.Instance.NextCats();
@@ -66,6 +72,6 @@ public class Cat : MonoBehaviour
     {
         transform.position = new Vector3(0f, 8.7f, 0f);
         transform.localScale = Vector3.one * OriginScale;
-
+        CatGauidLine.SetActive(true);
     }
 }
