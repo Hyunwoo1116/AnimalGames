@@ -72,6 +72,7 @@ public class Cat : MonoBehaviour
     {
         transform.position = new Vector3(0f, 8.7f, 0f);
         transform.localScale = Vector3.one * OriginScale;
+        CatGauidLine.transform.localScale = Vector2.one * MoewMergeConst.CatCauidCanvasScale * MoewMergeConst.CatGauidDefaultScale / OriginScale;
         CatGauidLine.SetActive(true);
     }
 }
