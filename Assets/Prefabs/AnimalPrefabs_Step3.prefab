@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 4863351852864395383}
   - component: {fileID: -414379860374801943}
   - component: {fileID: -8585020999768261720}
+  - component: {fileID: 4879340428617389271}
   m_Layer: 0
   m_Name: AnimalPrefabs_Step3
   m_TagString: Untagged
@@ -141,7 +142,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 271, y: 153}
-  m_SizeDelta: {x: 5.2, y: 5.2}
+  m_SizeDelta: {x: 5.1, y: 5.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &1696940749205728465
 Rigidbody2D:
@@ -234,6 +235,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CatLevel>k__BackingField: 0
   IsActive: 0
+--- !u!222 &4879340428617389271
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3745124322083259219}
+  m_CullTransparentMesh: 1
 --- !u!1 &5022191231357691987
 GameObject:
   m_ObjectHideFlags: 0
