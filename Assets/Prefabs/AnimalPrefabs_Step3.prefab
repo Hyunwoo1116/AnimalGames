@@ -142,7 +142,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 271, y: 153}
-  m_SizeDelta: {x: 5.1, y: 5.2}
+  m_SizeDelta: {x: 4.43, y: 4.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &1696940749205728465
 Rigidbody2D:
@@ -205,7 +205,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.05, y: -0.16}
+  m_Offset: {x: 0, y: 0}
   m_Radius: 2.14
 --- !u!114 &-414379860374801943
 MonoBehaviour:
@@ -318,12 +318,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f3f59b2f7a6c7e743addc4f08612e222, type: 3}
+  m_Sprite: {fileID: 372709548, guid: 2311bec1b39a23f43b93f37102367345, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 4.3, y: 4.3012576}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
