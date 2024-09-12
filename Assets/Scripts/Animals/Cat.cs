@@ -18,13 +18,12 @@ public class Cat : MonoBehaviour
     public RectTransform RectTransform => rectTransform ??= this.GetComponent<RectTransform>();
 
     public float OriginScale;
-    float ReadyScale = 30f;
-
+    private float ReadyScale = 30f;
+    private float minBorderX = float.MinValue;
+    private float maxBorderX = float.MinValue;
 
     private IGameManager GameManager;
     private ISoundManager SoundManager; 
-
-
     public GameObject CatGauidLine;
 
     // Start is called before the first frame update
@@ -49,18 +48,12 @@ public class Cat : MonoBehaviour
             Debug.Log(mousePosition.x);
             Debug.Log(RectTransform.sizeDelta);
             Debug.Log(transform.localScale);
-            float leftBorder = GameManager.GetLeftEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale);
-            float rightBorder = GameManager.GetRightEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale);
-            
-            if (mousePosition.x < leftBorder)
-            {
-                mousePosition.x = leftBorder;
-            }
-            else if (mousePosition.x > rightBorder)
-            {
-                mousePosition.x = rightBorder;
-            }
+            minBorderX = minBorderX.Equals(float.MinValue) ? GameManager.GetLeftEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : minBorderX;
+            maxBorderX = maxBorderX.Equals(float.MinValue) ? GameManager.GetRightEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale /2f) : maxBorderX;
 
+            mousePosition.x = Mathf.Clamp(mousePosition.x, minBorderX, maxBorderX);
+
+            mousePosition.y = GameManager.GetTopPosition();
             Vector3 nextPosition = Vector3.Lerp(transform.position, mousePosition, 0.5f);
             nextPosition.z = 0f;
             transform.position = nextPosition;
@@ -86,7 +79,7 @@ public class Cat : MonoBehaviour
 
     public void CatStart()
     {
-        transform.position = new Vector3(0f, 8.7f, 0f);
+        transform.position = new Vector3(0f, GameManager.GetTopPosition(), 0f);
         transform.localScale = Vector3.one * OriginScale;
         CatGauidLine.transform.localScale = Vector2.one * MoewMergeConst.CatCauidCanvasScale * MoewMergeConst.CatGauidDefaultScale / OriginScale;
         CatGauidLine.SetActive(true);

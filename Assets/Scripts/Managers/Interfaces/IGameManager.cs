@@ -8,4 +8,5 @@ public interface IGameManager
     public float GetRightEndPosition(Vector2 endObjectPosition);
     public void NextCats();
     public void AddGameScore(CatLevel instanceCatLevel);
+    public float GetTopPosition();
 }

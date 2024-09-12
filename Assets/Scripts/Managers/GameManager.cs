@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour, IGameManager
     public SoundManager SoundManager;
     public CatManager CatManager;
 
+    private float topPosition = float.MinValue;
     public void Awake()
     {
         if (null == instance)
@@ -96,5 +97,10 @@ public class GameManager : MonoBehaviour, IGameManager
     {
         return Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height) - endObjectPosition).x;
         
+    }
+
+    public float GetTopPosition()
+    {
+        return topPosition = topPosition.Equals(float.MinValue) ? Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height) - new Vector2(0f, 471)).y : topPosition;
     }
 }
