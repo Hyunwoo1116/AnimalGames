@@ -24,9 +24,10 @@ public class CatManager : MonoBehaviour, ICatManager
     public SoundManager SoundManager;
     private Cat GetRandomCats()
     {
-        int RandomIndex = Random.Range(1, 5);
+        int RandomIndex = Random.Range(0, 5);
 
         Cat cat = Instantiate(Cats[RandomIndex]);
+        cat.SetDependency(GameManager.Instance, SoundManager);
         CatMerge catMerge = cat.GetComponent<CatMerge>();
         catMerge.CatLevel = (CatLevel) RandomIndex;
         catMerge.CatManager = this;
@@ -52,7 +53,7 @@ public class CatManager : MonoBehaviour, ICatManager
 
         NextCat = GetRandomCats();
         NextCat.transform.SetParent(NextCatTransform, true);
-        NextCat.transform.localPosition = Vector3.zero;
+        NextCat.transform.localPosition = new Vector3(MoewMergeConst.NextCatXPosition, 0f, 0f);
         NextCat.enabled = false;
         NextCat.Ready();
 
@@ -69,7 +70,7 @@ public class CatManager : MonoBehaviour, ICatManager
 
         NextCat.enabled = false;
         NextCat.transform.SetParent(NextCatTransform, true);
-        NextCat.transform.localPosition = Vector3.zero;
+        NextCat.transform.localPosition = new Vector3(MoewMergeConst.NextCatXPosition, 0f, 0f);
         NextCat.Ready();
     }
 
@@ -84,6 +85,7 @@ public class CatManager : MonoBehaviour, ICatManager
 
             SoundManager.PlayMergeSound();
             Cat cat = Instantiate(Cats[(int)createModel.catLevel], GameArea);
+            cat.SetDependency(GameManager.Instance, SoundManager);
             cat.transform.position = createModel.createPosition;
             cat.RigidBody.simulated = true;
             cat.enabled = false;

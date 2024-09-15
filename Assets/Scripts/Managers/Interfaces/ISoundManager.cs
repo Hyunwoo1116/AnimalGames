@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public interface ISoundManager 
 {
-    void SetEffectVolume(float volume);
-    void SetBackgroundVolume(float volume);
-    float GetEffectVolume();
-    float GetBackgroundVolume();
+    public void SetEffectVolume(float volume);
+    public void SetBackgroundVolume(float volume);
+    public float GetEffectVolume();
+    public float GetBackgroundVolume();
+    public Task PlayInstanceSound();
 
 }

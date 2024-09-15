@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IGameManager
 {
     public static GameManager Instance
     {
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public SoundManager SoundManager;
     public CatManager CatManager;
 
+    private float topPosition = float.MinValue;
     public void Awake()
     {
         if (null == instance)
@@ -50,7 +51,6 @@ public class GameManager : MonoBehaviour
 #else
         QualitySettings.vSyncCount = 1;
 #endif
-
         OnGameStart();
     }
 
@@ -86,4 +86,21 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public float GetLeftEndPosition(Vector2 endObjectPosition)
+    {
+
+        return Camera.main.ScreenToWorldPoint(Vector2.zero + endObjectPosition).x;
+        
+    }
+
+    public float GetRightEndPosition(Vector2 endObjectPosition)
+    {
+        return Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height) - endObjectPosition).x;
+        
+    }
+
+    public float GetTopPosition()
+    {
+        return topPosition = topPosition.Equals(float.MinValue) ? Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height) - new Vector2(0f, 471)).y : topPosition;
+    }
 }
