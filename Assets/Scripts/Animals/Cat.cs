@@ -25,6 +25,7 @@ public class Cat : MonoBehaviour
     private IGameManager GameManager;
     private ISoundManager SoundManager; 
     public GameObject CatGauidLine;
+    public GameObject CatOutline;
 
     // Start is called before the first frame update
     void Start()
@@ -63,19 +64,27 @@ public class Cat : MonoBehaviour
 
         if( Input.GetMouseButtonUp(0) && !RigidBody.simulated)
         {
-            CatGauidLine.SetActive(false);
-            RigidBody.simulated = true;
-            await SoundManager.PlayInstanceSound(); 
-            GameManager.NextCats();
-            GameManager.AddGameScore(CatMerge.CatLevel);
-            this.enabled = false;
+            DropDownCat();
         }
     }
 
+    private async void DropDownCat()
+    {
+        CatGauidLine.SetActive(false);
+        RigidBody.simulated = true;
+        await SoundManager.PlayInstanceSound();
+        GameManager.NextCats();
+        GameManager.AddGameScore(CatMerge.CatLevel);
+        this.enabled = false;
+    }
+    // 넥스트 UI
     public void Ready()
     {
         transform.localScale = Vector3.one * ReadyScale;
+        CatOutline.gameObject.SetActive(true);
     }
+
+    // 현재 시작 된 Cat
 
     public void CatStart()
     {
@@ -83,5 +92,6 @@ public class Cat : MonoBehaviour
         transform.localScale = Vector3.one * OriginScale;
         CatGauidLine.transform.localScale = Vector2.one * MoewMergeConst.CatCauidCanvasScale * MoewMergeConst.CatGauidDefaultScale / OriginScale;
         CatGauidLine.SetActive(true);
+        CatOutline.gameObject.SetActive(false);
     }
 }
