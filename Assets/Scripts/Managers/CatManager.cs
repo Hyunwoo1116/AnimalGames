@@ -1,3 +1,5 @@
+using MoewMerge.Cat.Model;
+using MoewMerge.UI.Controller.CatStep;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,6 +24,7 @@ public class CatManager : MonoBehaviour, ICatManager
     public Queue<CatCreateModel> catQueue = new Queue<CatCreateModel>();
 
     public SoundManager SoundManager;
+    public CatStepController CatStepController;
     private Cat GetRandomCats()
     {
         int RandomIndex = Random.Range(0, 5);
@@ -75,7 +78,7 @@ public class CatManager : MonoBehaviour, ICatManager
     }
 
     public bool OnLevelUpCat(CatCreateModel createModel) 
-    {
+    { 
         try
         {
             if ( createModel.catLevel == 0)
@@ -84,6 +87,7 @@ public class CatManager : MonoBehaviour, ICatManager
             }
 
             SoundManager.PlayMergeSound();
+            CatStepController.PlayCatMerge(createModel.catLevel);
             Cat cat = Instantiate(Cats[(int)createModel.catLevel], GameArea);
             cat.SetDependency(GameManager.Instance, SoundManager);
             cat.transform.position = createModel.createPosition;

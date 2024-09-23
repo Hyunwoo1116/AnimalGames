@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using MoewMerge.Cat.Model;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;

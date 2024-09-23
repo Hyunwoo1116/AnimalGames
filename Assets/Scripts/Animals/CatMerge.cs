@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Unity.VisualScripting;
+using MoewMerge.Cat.Model;
 
 public class CatMerge : MonoBehaviour
 {
