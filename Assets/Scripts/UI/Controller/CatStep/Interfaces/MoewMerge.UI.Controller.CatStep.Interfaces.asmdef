@@ -1,0 +1,16 @@
+{
+    "name": "MoewMerge.UI.Controller.CatStep.Interfaces",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0ea239897c8d31b45a1a70e08cbbcb92"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
