@@ -19,9 +19,9 @@ namespace MoewMerge.UI.Controller.CatStep
             CatStepAnimator bAnimator = StepAnimators[beforeAnimator];
             CatStepAnimator aAnimator = StepAnimators[nextAnimator];
             while (aAnimator.IsPlaying || bAnimator.IsPlaying)
-                await Task.Delay(10);
-            StepAnimators[beforeAnimator].SetTrigger("Down");
-            StepAnimators[nextAnimator].SetTrigger("Up");
+                await Task.Yield();
+            bAnimator.SetTrigger("Down");
+            aAnimator.SetTrigger("Up");
         }
 
         // Start is called before the first frame update

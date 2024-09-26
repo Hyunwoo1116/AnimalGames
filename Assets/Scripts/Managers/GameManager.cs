@@ -73,13 +73,13 @@ public class GameManager : MonoBehaviour, IGameManager
 
     public void AddGameScore(CatLevel instanceCatLevel)
     {
-        gameScore += ((int)instanceCatLevel + 1) * 10;
+        gameScore += ((int)instanceCatLevel + 1);
         updateGameScoreUI();
     }
 
     private void updateGameScoreUI()
     {
-        gameScoreUI.text = "GameScore : " + gameScore.ToString();
+        gameScoreUI.text = gameScore.ToString();
     }
 
     public void OnGameEnd()
