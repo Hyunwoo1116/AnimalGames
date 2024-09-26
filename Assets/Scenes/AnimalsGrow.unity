@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: 78435095}
   - component: {fileID: 78435094}
   - component: {fileID: 78435096}
+  - component: {fileID: 78435097}
   m_Layer: 5
   m_Name: Cat4
   m_TagString: Untagged
@@ -586,6 +587,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &78435097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78435092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d0492e3f2f64c4aaed6fc75bdc8bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &102919586
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +686,7 @@ GameObject:
   - component: {fileID: 122318157}
   - component: {fileID: 122318156}
   - component: {fileID: 122318158}
+  - component: {fileID: 122318159}
   m_Layer: 5
   m_Name: Cat7
   m_TagString: Untagged
@@ -759,6 +773,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &122318159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122318154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d0492e3f2f64c4aaed6fc75bdc8bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &146381839
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +797,7 @@ GameObject:
   - component: {fileID: 146381842}
   - component: {fileID: 146381841}
   - component: {fileID: 146381843}
+  - component: {fileID: 146381844}
   m_Layer: 5
   m_Name: Cat10
   m_TagString: Untagged
@@ -857,6 +884,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &146381844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146381839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d0492e3f2f64c4aaed6fc75bdc8bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &150255730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,6 +1418,7 @@ GameObject:
   - component: {fileID: 457701846}
   - component: {fileID: 457701845}
   - component: {fileID: 457701847}
+  - component: {fileID: 457701848}
   m_Layer: 5
   m_Name: Cat9
   m_TagString: Untagged
@@ -1465,6 +1505,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &457701848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457701843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d0492e3f2f64c4aaed6fc75bdc8bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &465062443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,6 +1529,7 @@ GameObject:
   - component: {fileID: 465062446}
   - component: {fileID: 465062445}
   - component: {fileID: 465062447}
+  - component: {fileID: 465062448}
   m_Layer: 5
   m_Name: Cat1
   m_TagString: Untagged
@@ -1563,6 +1616,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &465062448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465062443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d0492e3f2f64c4aaed6fc75bdc8bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &475432112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2777,6 +2842,7 @@ GameObject:
   - component: {fileID: 770703672}
   - component: {fileID: 770703671}
   - component: {fileID: 770703673}
+  - component: {fileID: 770703674}
   m_Layer: 5
   m_Name: Cat2
   m_TagString: Untagged
@@ -2863,6 +2929,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &770703674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770703669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d0492e3f2f64c4aaed6fc75bdc8bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &778413243
 GameObject:
   m_ObjectHideFlags: 0
@@ -3521,6 +3599,7 @@ GameObject:
   - component: {fileID: 1092899364}
   - component: {fileID: 1092899363}
   - component: {fileID: 1092899365}
+  - component: {fileID: 1092899366}
   m_Layer: 5
   m_Name: Cat8
   m_TagString: Untagged
@@ -3607,6 +3686,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1092899366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092899361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d0492e3f2f64c4aaed6fc75bdc8bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1138217032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,6 +3710,7 @@ GameObject:
   - component: {fileID: 1138217035}
   - component: {fileID: 1138217034}
   - component: {fileID: 1138217036}
+  - component: {fileID: 1138217037}
   m_Layer: 5
   m_Name: Cat6
   m_TagString: Untagged
@@ -3705,6 +3797,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1138217037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138217032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d0492e3f2f64c4aaed6fc75bdc8bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1156504778
 GameObject:
   m_ObjectHideFlags: 0
@@ -4321,6 +4425,7 @@ GameObject:
   - component: {fileID: 1356390137}
   - component: {fileID: 1356390136}
   - component: {fileID: 1356390138}
+  - component: {fileID: 1356390139}
   m_Layer: 5
   m_Name: Cat3
   m_TagString: Untagged
@@ -4407,6 +4512,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1356390139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356390134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d0492e3f2f64c4aaed6fc75bdc8bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1361314537
 GameObject:
   m_ObjectHideFlags: 0
@@ -4505,6 +4622,7 @@ GameObject:
   - component: {fileID: 1389535059}
   - component: {fileID: 1389535058}
   - component: {fileID: 1389535060}
+  - component: {fileID: 1389535061}
   m_Layer: 5
   m_Name: Cat11
   m_TagString: Untagged
@@ -4591,6 +4709,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1389535061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389535056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d0492e3f2f64c4aaed6fc75bdc8bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1421962284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5866,6 +5996,7 @@ GameObject:
   - component: {fileID: 1736056963}
   - component: {fileID: 1736056962}
   - component: {fileID: 1736056964}
+  - component: {fileID: 1736056965}
   m_Layer: 5
   m_Name: Cat5
   m_TagString: Untagged
@@ -5952,6 +6083,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1736056965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736056960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d0492e3f2f64c4aaed6fc75bdc8bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1790330637 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7592606011787368142, guid: 27baeee319d6be0439a4f0bf1afe65cd, type: 3}
@@ -6169,10 +6312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100c3b4c8ff0c2c43a09446b02a8a806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxCollider: {fileID: 0}
-  groundLayer:
-    m_Bits: 0
-  rigidbodyCount: 0
 --- !u!224 &1827184008 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 589177897171300486, guid: 36a2c9c6d3e4d3145b7d22747ed40b19, type: 3}
@@ -6712,7 +6851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 657.77167, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2037259837
@@ -6768,17 +6907,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StepAnimators:
-  - {fileID: 465062447}
-  - {fileID: 770703673}
-  - {fileID: 1356390138}
-  - {fileID: 78435096}
-  - {fileID: 1736056964}
-  - {fileID: 1138217036}
-  - {fileID: 122318158}
-  - {fileID: 1092899365}
-  - {fileID: 457701847}
-  - {fileID: 146381843}
-  - {fileID: 1389535060}
+  - {fileID: 465062448}
+  - {fileID: 770703674}
+  - {fileID: 1356390139}
+  - {fileID: 78435097}
+  - {fileID: 1736056965}
+  - {fileID: 1138217037}
+  - {fileID: 122318159}
+  - {fileID: 1092899366}
+  - {fileID: 457701848}
+  - {fileID: 146381844}
+  - {fileID: 1389535061}
 --- !u!1 &2044839755
 GameObject:
   m_ObjectHideFlags: 0
@@ -7615,6 +7754,10 @@ PrefabInstance:
       propertyPath: NextCatTransform
       value: 
       objectReference: {fileID: 2146161436}
+    - target: {fileID: 7143817056340969991, guid: 7d2be023a217cb348b8455b2e367ea0c, type: 3}
+      propertyPath: CatStepController
+      value: 
+      objectReference: {fileID: 2037259839}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
