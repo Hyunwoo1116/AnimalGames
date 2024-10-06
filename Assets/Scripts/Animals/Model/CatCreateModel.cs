@@ -1,21 +1,24 @@
-using MoewMerge.Cat.Model;
+using MoewMerge.Cats.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatCreateModel 
+namespace MoewMerge.Animals.Models
 {
-    public GameObject source;
-    public GameObject collisionObject;
-    public Vector3 createPosition;
-    public CatLevel catLevel;
-    public CatCreateModel(GameObject source, GameObject collisionObject, Vector3 createPosition, CatLevel catLevel)
+    public class CatCreateModel
     {
-        this.source = source;
-        this.collisionObject = collisionObject;
-        this.createPosition = createPosition;
-        this.catLevel = catLevel;
+        public GameObject source;
+        public GameObject collisionObject;
+        public Vector3 createPosition;
+        public CatLevel catLevel;
+        public CatCreateModel(GameObject source, GameObject collisionObject, Vector3 createPosition, CatLevel catLevel)
+        {
+            this.source = source;
+            this.collisionObject = collisionObject;
+            this.createPosition = createPosition;
+            this.catLevel = catLevel;
+        }
     }
-    
-
 }
+
+

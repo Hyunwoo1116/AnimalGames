@@ -1,0 +1,20 @@
+{
+    "name": "MoewMerge.Animals",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c739a7dc42fb59d40aad0e358f95276c",
+        "GUID:34c005ba099c87d4ebf0854f8489b242",
+        "GUID:0ea239897c8d31b45a1a70e08cbbcb92",
+        "GUID:0e34b42bd433d3d4a8ccedd603413092",
+        "GUID:ab41442e26971b34b8afd0770ec555c3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

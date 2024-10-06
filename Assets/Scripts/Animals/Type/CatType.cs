@@ -1,5 +1,5 @@
 
-namespace MoewMerge.Cat.Model
+namespace MoewMerge.Cats.Model
 {
     public class CatType 
     {

@@ -1,13 +1,16 @@
-using MoewMerge.Cat.Model;
-using System.Collections;
-using System.Collections.Generic;
+
+using MoewMerge.Cats.Model;
 using UnityEngine;
 
-public interface IGameManager 
+namespace MoewMerge.Managers.Interfaces
 {
-    public float GetLeftEndPosition(Vector2 endObjectPosition);
-    public float GetRightEndPosition(Vector2 endObjectPosition);
-    public void NextCats();
-    public void AddGameScore(CatLevel instanceCatLevel);
-    public float GetTopPosition();
+    public interface IGameManager
+    {
+        public float GetLeftEndPosition(Vector2 endObjectPosition);
+        public float GetRightEndPosition(Vector2 endObjectPosition);
+        public void NextCats();
+        public void AddGameScore(CatLevel instanceCatLevel);
+        public float GetTopPosition();
+    }
 }
+

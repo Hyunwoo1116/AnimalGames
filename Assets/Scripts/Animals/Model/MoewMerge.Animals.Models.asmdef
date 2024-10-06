@@ -1,7 +1,9 @@
 {
-    "name": "MoewMerge.Cats.Model",
+    "name": "MoewMerge.Animals.Models",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:0ea239897c8d31b45a1a70e08cbbcb92"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

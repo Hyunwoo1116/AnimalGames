@@ -1,7 +1,9 @@
 {
-    "name": "MoewMerge.Cats.Model",
+    "name": "MoewMerge.GameModel",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:e742f1f4357204043a453e9aba9ffee6"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
