@@ -1,5 +1,5 @@
 
-using MoewMerge.Cat.Model;
+using MoewMerge.Cats.Model;
 
 namespace MoewMerge.UI.Controller.CatStep.Interfaces
 {

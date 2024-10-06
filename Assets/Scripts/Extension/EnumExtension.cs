@@ -1,4 +1,4 @@
-using MoewMerge.Cat.Model;
+using MoewMerge.Cats.Model;
 
 public static  class EnumExtension 
 {

@@ -1,4 +1,4 @@
-using MoewMerge.Cat.Model;
+using MoewMerge.Cats.Model;
 using MoewMerge.UI.Controller.CatStep.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;

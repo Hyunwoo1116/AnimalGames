@@ -1,0 +1,17 @@
+{
+    "name": "MoewMerge.Managers.Interfaces",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0ea239897c8d31b45a1a70e08cbbcb92",
+        "GUID:0e34b42bd433d3d4a8ccedd603413092"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

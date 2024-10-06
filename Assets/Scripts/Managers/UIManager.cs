@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public ScreenCaptureManager ScreenCaptureManager;
+    //public ScreenCaptureManager ScreenCaptureManager;
 
     
     public void OnGameEnd()

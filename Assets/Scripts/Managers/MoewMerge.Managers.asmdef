@@ -1,0 +1,22 @@
+{
+    "name": "MoewMerge.Managers",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0ea239897c8d31b45a1a70e08cbbcb92",
+        "GUID:c739a7dc42fb59d40aad0e358f95276c",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:34c005ba099c87d4ebf0854f8489b242",
+        "GUID:99cf772a6136b8f41bb5599efbaf610a",
+        "GUID:0e34b42bd433d3d4a8ccedd603413092",
+        "GUID:7e52d059752801f4a930c5e1b590bfbb"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
