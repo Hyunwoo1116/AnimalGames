@@ -63,6 +63,13 @@ namespace MoewMerge.Managers
             OnGameStart();
         }
 
+        public bool GetEffectSoundEnabled() => gameDatas.EffectSound;
+        public bool GetBackgroundSoundEnabled() => gameDatas.BackgroundSound;
+        public bool GetVibrateEnabled() => gameDatas.Vibrate;
+        public bool SetEffectSoundEnabled(bool enabled) => gameDatas.EffectSound = enabled;
+        public bool SetBackgroundSoundEnabled(bool enabled) => gameDatas.BackgroundSound = enabled;
+        public bool SetVibrateEnabled(bool enabled) => gameDatas.Vibrate = enabled;
+
         private void LoadOrCreateGameData()
         {
             string dataFilePath = MoewMergeConst.MoewGameDataFile;
