@@ -1,7 +1,10 @@
 ﻿using MoewMerge.Cats.Model;
+using MoewMerge.GameModel;
 using MoewMerge.Managers.Interfaces;
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +12,7 @@ namespace MoewMerge.Managers
 {
     public class GameManager : MonoBehaviour, IGameManager
     {
+        public MoewParameter gameDatas;
         public static GameManager Instance
         {
             get
@@ -55,13 +59,34 @@ namespace MoewMerge.Managers
 #else
         QualitySettings.vSyncCount = 1;
 #endif
-            LoadData();
+            LoadOrCreateGameData();
             OnGameStart();
         }
 
-        private void LoadData()
+        private void LoadOrCreateGameData()
         {
+            string dataFilePath = MoewMergeConst.MoewGameDataFile;
+            Debug.Log(dataFilePath);
+            if (File.Exists(dataFilePath))
+            {
+                string fileDatas = File.ReadAllText(dataFilePath);
+                Debug.Log(fileDatas);
+                gameDatas = JsonConvert.DeserializeObject<MoewParameter>(fileDatas);
+                Debug.Log(gameDatas.BackgroundSound);
+                SaveGameData();
+            }
+            else
+            {
+                gameDatas = new MoewParameter();
+                SaveGameData();
+            }
+        }
 
+        private void SaveGameData()
+        {
+            string datas = JsonConvert.SerializeObject(gameDatas);
+            Debug.Log($"SaveDatas{datas}");
+            File.WriteAllText(MoewMergeConst.MoewGameDataFile, datas);
         }
 
 
@@ -77,7 +102,7 @@ namespace MoewMerge.Managers
         {
             gameScore = 0;
             CatManager.OnGameStart();
-            SoundManager.PlayBackgroundSound();
+            //SoundManager.PlayBackgroundSound();
         }
 
         public void AddGameScore(CatLevel instanceCatLevel)
