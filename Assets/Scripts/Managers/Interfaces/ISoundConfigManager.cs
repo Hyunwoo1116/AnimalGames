@@ -7,6 +7,7 @@ namespace MoewMerge.Managers.Interfaces
     {
         public bool GetSoundConfig(SoundConfigType soundConfigType);
         public bool SetSoundConfig(SoundConfigType soundConfigType, bool enabled);
+        public bool SaveSoundConfig();
     }
 
     public enum SoundConfigType

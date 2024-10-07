@@ -89,7 +89,7 @@ namespace MoewMerge.Managers
             }
         }
 
-        private void SaveGameData()
+        public void SaveGameData()
         {
             string datas = JsonConvert.SerializeObject(gameDatas);
             Debug.Log($"SaveDatas{datas}");

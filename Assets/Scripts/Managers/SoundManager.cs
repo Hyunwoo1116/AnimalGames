@@ -1,4 +1,5 @@
 using MoewMerge.Managers.Interfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -93,6 +94,20 @@ namespace MoewMerge.Managers
                     return SetVibrateEnabled(enabled);
             }
             return false;
+        }
+
+        public bool SaveSoundConfig()
+        {
+            try
+            {
+                GameManager.Instance.SaveGameData();
+                return true;
+            } catch (Exception error)
+            {
+                Debug.LogError(error.Message);
+                return false;
+            }
+
         }
     }
     public enum SoundType
