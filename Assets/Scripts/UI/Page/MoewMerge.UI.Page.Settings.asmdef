@@ -1,10 +1,8 @@
 {
-    "name": "MoewMerge.Managers.Interfaces",
+    "name": "MoewMerge.UI.Page.Settings",
     "rootNamespace": "",
     "references": [
-        "GUID:0ea239897c8d31b45a1a70e08cbbcb92",
-        "GUID:0e34b42bd433d3d4a8ccedd603413092",
-        "GUID:e742f1f4357204043a453e9aba9ffee6"
+        "GUID:41bb0c391a74af549aad1d0561a1b602"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

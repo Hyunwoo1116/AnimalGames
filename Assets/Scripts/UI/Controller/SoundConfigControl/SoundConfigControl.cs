@@ -39,12 +39,5 @@ namespace MoewMerge.UI.Controller.SoundConfig
             TargetRawImage.texture = isConfigEnabled ? enabledTexture : disableTexture;
             SoundConfigManager.SetSoundConfig(SoundConfigType, isConfigEnabled);
         }
-        private void OnDisable()
-        {
-            SoundConfigManager.SaveSoundConfig();
-        }
-
-
-
     }
 }

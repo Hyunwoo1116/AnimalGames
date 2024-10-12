@@ -10,6 +10,7 @@ namespace MoewMerge.Zenject
         public override void InstallBindings()
         {
             Container.Bind<ISoundConfigManager>().To<SoundManager>().FromComponentInHierarchy().AsCached();
+            Container.Bind<ILanguageManager>().To<LanguageManager>().FromComponentInHierarchy().AsCached();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MoewMerge.Cats.Model;
 using MoewMerge.GameModel;
+using MoewMerge.Localization.Model;
 using MoewMerge.Managers.Interfaces;
 using Newtonsoft.Json;
 using System.Collections;
@@ -88,6 +89,9 @@ namespace MoewMerge.Managers
                 SaveGameData();
             }
         }
+
+        public Locale GetLocale() => gameDatas.AppLocale;
+        public Locale SetLocale(Locale locale) => gameDatas.AppLocale = locale;
 
         public void SaveGameData()
         {
