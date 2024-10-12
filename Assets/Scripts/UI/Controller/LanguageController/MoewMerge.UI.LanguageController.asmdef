@@ -2,7 +2,8 @@
     "name": "MoewMerge.UI.LanguageController",
     "rootNamespace": "",
     "references": [
-        "GUID:e742f1f4357204043a453e9aba9ffee6"
+        "GUID:e742f1f4357204043a453e9aba9ffee6",
+        "GUID:c739a7dc42fb59d40aad0e358f95276c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

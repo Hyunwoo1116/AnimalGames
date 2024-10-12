@@ -1,5 +1,6 @@
 ﻿using MoewMerge.Cats.Model;
 using MoewMerge.GameModel;
+using MoewMerge.Localization.Model;
 using MoewMerge.Managers.Interfaces;
 using Newtonsoft.Json;
 using System.Collections;
@@ -63,6 +64,13 @@ namespace MoewMerge.Managers
             OnGameStart();
         }
 
+        public bool GetEffectSoundEnabled() => gameDatas.EffectSound;
+        public bool GetBackgroundSoundEnabled() => gameDatas.BackgroundSound;
+        public bool GetVibrateEnabled() => gameDatas.Vibrate;
+        public bool SetEffectSoundEnabled(bool enabled) => gameDatas.EffectSound = enabled;
+        public bool SetBackgroundSoundEnabled(bool enabled) => gameDatas.BackgroundSound = enabled;
+        public bool SetVibrateEnabled(bool enabled) => gameDatas.Vibrate = enabled;
+
         private void LoadOrCreateGameData()
         {
             string dataFilePath = MoewMergeConst.MoewGameDataFile;
@@ -82,7 +90,10 @@ namespace MoewMerge.Managers
             }
         }
 
-        private void SaveGameData()
+        public Locale GetLocale() => gameDatas.AppLocale;
+        public Locale SetLocale(Locale locale) => gameDatas.AppLocale = locale;
+
+        public void SaveGameData()
         {
             string datas = JsonConvert.SerializeObject(gameDatas);
             Debug.Log($"SaveDatas{datas}");

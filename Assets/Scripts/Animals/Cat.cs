@@ -2,6 +2,7 @@ using MoewMerge.Managers.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace MoewMerge.Animals
@@ -44,6 +45,10 @@ namespace MoewMerge.Animals
         // Update is called once per frame
         async void Update()
         {
+            if (EventSystem.current.currentSelectedGameObject)
+            {
+                return;
+            }
             if (Input.GetMouseButton(0) && !RigidBody.simulated)
             {
 

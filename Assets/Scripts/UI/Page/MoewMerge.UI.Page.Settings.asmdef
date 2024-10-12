@@ -1,0 +1,16 @@
+{
+    "name": "MoewMerge.UI.Page.Settings",
+    "rootNamespace": "",
+    "references": [
+        "GUID:41bb0c391a74af549aad1d0561a1b602"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
