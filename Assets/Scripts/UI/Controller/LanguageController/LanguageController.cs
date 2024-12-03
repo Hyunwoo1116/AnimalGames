@@ -11,7 +11,7 @@ namespace MoewMerge.UI.LanguageController
 {
     public class LanguageController : MonoBehaviour
     {
-        public Locale LanguageType;
+        public Locales LanguageType;
 
         private Toggle toggle;
         public Toggle LanguageToggle => toggle ??= this.GetComponent<Toggle>();

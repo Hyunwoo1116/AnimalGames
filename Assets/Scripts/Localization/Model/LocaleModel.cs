@@ -6,7 +6,7 @@ namespace MoewMerge.Localization.Model
         
     }
 
-    public enum Locale
+    public enum Locales
     {
         ko,
         en

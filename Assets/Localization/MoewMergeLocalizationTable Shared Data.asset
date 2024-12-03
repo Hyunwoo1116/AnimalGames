@@ -19,6 +19,10 @@ MonoBehaviour:
     m_Key: test
     m_Metadata:
       m_Items: []
+  - m_Id: 2676875825152
+    m_Key: AnimalsGrow/LocalizationTest/Test
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -16,11 +16,11 @@ namespace MoewMerge.GameModel
         public bool Vibrate = true;
 
         [field:NonSerialized]
-        public Locale AppLocale
+        public Locales AppLocale
         {
             get
             {
-                return (Locale)Enum.Parse(typeof(Locale), Locale);
+                return (Locales)Enum.Parse(typeof(Locales), Locale);
             }
             set
             {
