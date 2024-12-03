@@ -9,7 +9,7 @@ public static class MoewMergeConst
     public const float CatGauidDefaultScale = 20f;
     public const float CatCauidCanvasScale = 0.05f;
 
-    public static string MoewGameDataFile = Path.Combine(Application.persistentDataPath,"MoewMerge1116.txt");
+    public static string MoewGameDataFile = Path.Combine(Application.persistentDataPath,"MoewMerge.txt");
 
 }
 

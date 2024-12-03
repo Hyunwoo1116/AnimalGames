@@ -52,16 +52,10 @@ namespace MoewMerge.Animals
             if (Input.GetMouseButton(0) && !RigidBody.simulated)
             {
 
-                // 수정 필요 범위에서 벗어나지 않게 설정해야댐.
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Debug.Log(mousePosition.x);
-                Debug.Log(RectTransform.sizeDelta);
-                Debug.Log(transform.localScale);
                 minBorderX = minBorderX.Equals(float.MinValue) ? GameManager.GetLeftEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : minBorderX;
                 maxBorderX = maxBorderX.Equals(float.MinValue) ? GameManager.GetRightEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : maxBorderX;
-
                 mousePosition.x = Mathf.Clamp(mousePosition.x, minBorderX, maxBorderX);
-
                 mousePosition.y = GameManager.GetTopPosition();
                 Vector3 nextPosition = Vector3.Lerp(transform.position, mousePosition, 0.5f);
                 nextPosition.z = 0f;
