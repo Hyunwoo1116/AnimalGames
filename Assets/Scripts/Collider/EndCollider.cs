@@ -6,6 +6,15 @@ using UnityEngine;
 
 public class EndCollider : MonoBehaviour
 {
+    private BoxCollider2D boxCollider;
+
+    public BoxCollider2D BoxCollider => boxCollider ??= this.GetComponent<BoxCollider2D>();
+
+    private void Start()
+    {
+        Debug.Log(Screen.width);
+        BoxCollider.size = new Vector2(Screen.width * 2f, BoxCollider.size.y);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,7 +34,8 @@ public class EndCollider : MonoBehaviour
         {
             if ((catMerge.transform.position.y - gameObject.transform.position.y) <= 0)
                 catMerge.IsActive = true;
-        }/*
+        }
+        /*
         Debug.Log($"{(collision.gameObject.transform.position.y - gameObject.transform.position.y) > 0}" +
             $"\nStay2D{collision.gameObject.transform.position}\n" +
             $"Stay2D:Collider{gameObject.transform.position}");*/

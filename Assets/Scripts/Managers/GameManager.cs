@@ -131,7 +131,7 @@ namespace MoewMerge.Managers
 
         public void OnGameEnd()
         {
-
+            Debug.Log("OnGameEnd");
         }
 
         public float GetLeftEndPosition(Vector2 endObjectPosition)
