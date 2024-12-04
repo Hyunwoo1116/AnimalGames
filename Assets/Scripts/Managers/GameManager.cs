@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace MoewMerge.Managers
 {
@@ -58,12 +59,13 @@ namespace MoewMerge.Managers
 #if UNITY_IOS || UNITY_ANDROID
             Application.targetFrameRate = 60;
 #else
-        QualitySettings.vSyncCount = 1;
+             QualitySettings.vSyncCount = 1;
 #endif
             LoadOrCreateGameData();
             OnGameStart();
         }
 
+        [Inject] public ILanguageManager LanguageManager { get; set; } 
         public bool GetEffectSoundEnabled() => gameDatas.EffectSound;
         public bool GetBackgroundSoundEnabled() => gameDatas.BackgroundSound;
         public bool GetVibrateEnabled() => gameDatas.Vibrate;
@@ -80,7 +82,6 @@ namespace MoewMerge.Managers
                 string fileDatas = File.ReadAllText(dataFilePath);
                 Debug.Log(fileDatas);
                 gameDatas = JsonConvert.DeserializeObject<MoewParameter>(fileDatas);
-                Debug.Log(gameDatas.BackgroundSound);
                 SaveGameData();
             }
             else
@@ -88,10 +89,11 @@ namespace MoewMerge.Managers
                 gameDatas = new MoewParameter();
                 SaveGameData();
             }
+            LanguageManager.SetLocale(gameDatas.AppLocale);
         }
 
-        public Locale GetLocale() => gameDatas.AppLocale;
-        public Locale SetLocale(Locale locale) => gameDatas.AppLocale = locale;
+        public Locales GetLocale() => gameDatas.AppLocale;
+        public Locales SetLocale(Locales locale) => gameDatas.AppLocale = locale;
 
         public void SaveGameData()
         {

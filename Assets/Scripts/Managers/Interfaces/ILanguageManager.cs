@@ -5,7 +5,7 @@ namespace MoewMerge.Managers.Interfaces
 {
     public interface ILanguageManager 
     {
-        public Locale SetLocale(Locale locale);
-        public Locale GetCurrentLocale();
+        public Locales SetLocale(Locales locale);
+        public Locales GetCurrentLocale();
     }
 }
