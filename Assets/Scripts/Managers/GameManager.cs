@@ -36,6 +36,8 @@ namespace MoewMerge.Managers
         public CatManager CatManager;
 
         private float topPosition = float.MinValue;
+
+        public GameObject GameEndUI;
         public void Awake()
         {
             if (null == instance)
@@ -131,6 +133,7 @@ namespace MoewMerge.Managers
 
         public void OnGameEnd()
         {
+            GameEndUI.SetActive(true);
             Debug.Log("OnGameEnd");
         }
 
