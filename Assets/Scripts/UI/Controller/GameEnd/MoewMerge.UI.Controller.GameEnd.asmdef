@@ -1,12 +1,9 @@
 {
-    "name": "MoewMerge.Zenject",
+    "name": "MoewMerge.UI.Controller.GameEnd",
     "rootNamespace": "",
     "references": [
-        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
-        "GUID:41bb0c391a74af549aad1d0561a1b602",
-        "GUID:c739a7dc42fb59d40aad0e358f95276c",
         "GUID:9d8429f51eac0664484fb3df2ef5cf74",
-        "GUID:695c1da5cffe85141a6534f24736f9b3"
+        "GUID:41bb0c391a74af549aad1d0561a1b602"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

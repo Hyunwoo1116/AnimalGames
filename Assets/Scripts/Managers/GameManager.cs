@@ -2,12 +2,14 @@
 using MoewMerge.GameModel;
 using MoewMerge.Localization.Model;
 using MoewMerge.Managers.Interfaces;
+using MoewMerge.UI.Controller.GameEnd.Interfaces;
 using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace MoewMerge.Managers
@@ -24,6 +26,19 @@ namespace MoewMerge.Managers
         }
 
         private int gameScore;
+        public int GameScore
+        {
+            private set
+            {
+                gameScore = value;
+                updateGameScoreUI();
+
+            }
+            get
+            {
+                return gameScore;
+            }
+        }
 
         private static GameManager instance = null;
 
@@ -37,7 +52,6 @@ namespace MoewMerge.Managers
 
         private float topPosition = float.MinValue;
 
-        public GameObject GameEndUI;
         public void Awake()
         {
             if (null == instance)
@@ -67,6 +81,8 @@ namespace MoewMerge.Managers
             OnGameStart();
         }
 
+        [Inject] public IScreenCaptureManager ScreenCaptureManager;
+        [Inject] public IGameEndController GameEndController;
         [Inject] public ILanguageManager LanguageManager { get; set; } 
         public bool GetEffectSoundEnabled() => gameDatas.EffectSound;
         public bool GetBackgroundSoundEnabled() => gameDatas.BackgroundSound;
@@ -115,15 +131,15 @@ namespace MoewMerge.Managers
 
         public void OnGameStart()
         {
-            gameScore = 0;
+            GameScore = 0;
             CatManager.OnGameStart();
+            Time.timeScale = 1f;
             //SoundManager.PlayBackgroundSound();
         }
 
         public void AddGameScore(CatLevel instanceCatLevel)
         {
-            gameScore += ((int)instanceCatLevel + 1);
-            updateGameScoreUI();
+            GameScore += ((int)instanceCatLevel + 1);
         }
 
         private void updateGameScoreUI()
@@ -131,9 +147,12 @@ namespace MoewMerge.Managers
             gameScoreUI.text = gameScore.ToString();
         }
 
-        public void OnGameEnd()
+        public async void OnGameEnd()
         {
-            GameEndUI.SetActive(true);
+            Texture2D texture = await ScreenCaptureManager.GetScreenTexture();
+            GameEndController.SetResultTexture(texture);
+            GameEndController.Show();
+
             Debug.Log("OnGameEnd");
         }
 
@@ -148,6 +167,17 @@ namespace MoewMerge.Managers
         {
             return Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height) - endObjectPosition).x;
 
+        }
+
+        public async void ReStartGame()
+        {
+            ClearGame();
+            OnGameStart();
+            Debug.Log("Restart");
+        }
+        private void ClearGame()
+        {
+            CatManager.ClearInstanceCats();
         }
 
         public float GetTopPosition()

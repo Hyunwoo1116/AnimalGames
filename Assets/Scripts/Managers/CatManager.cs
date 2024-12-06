@@ -10,6 +10,8 @@ using UnityEngine;
 using MoewMerge.Animals;
 using Random = UnityEngine.Random;
 using MoewMerge.Cats.Model;
+using Unity.Plastic.Antlr3.Runtime.Misc;
+using static PlasticPipe.Server.MonitorStats;
 
 namespace MoewMerge.Managers
 {
@@ -18,6 +20,7 @@ namespace MoewMerge.Managers
 
         public List<Cat> Cats = new List<Cat>();
 
+        public List<Cat> InstanceCats = new List<Cat>();
         // Start is called before the first frame update
 
         public Transform NextCatTransform;
@@ -35,6 +38,7 @@ namespace MoewMerge.Managers
             int RandomIndex = Random.Range(0, 5);
 
             Cat cat = Instantiate(Cats[RandomIndex]);
+            InstanceCats.Add(cat);
             cat.SetDependency(GameManager.Instance, SoundManager);
             CatMerge catMerge = cat.GetComponent<CatMerge>();
             catMerge.CatLevel = (CatLevel)RandomIndex;
@@ -121,6 +125,19 @@ namespace MoewMerge.Managers
             CatCreateModel duplicateCheck = catQueue.FirstOrDefault(cat => cat.collisionObject.Equals(createModel.source) || cat.source.Equals(createModel));
             if (duplicateCheck is null)
                 catQueue.Enqueue(createModel);
+        }
+
+        public void ClearInstanceCats()
+        {
+            catQueue.Clear();
+            CurrentCat = null;
+            NextCat = null;
+            InstanceCats.ForEach(cat =>
+            {
+                if ( cat is not null)
+                    DestroyImmediate(cat.gameObject);
+            });
+            InstanceCats.Clear();
         }
     }
 

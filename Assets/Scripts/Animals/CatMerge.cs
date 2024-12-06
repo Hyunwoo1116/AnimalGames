@@ -30,8 +30,7 @@ public class CatMerge : MonoBehaviour
                 CatManager.AddCreateQueue(
                     new CatCreateModel(gameObject, targetCat.gameObject, centerPosition, CatLevel.GetMoveNext())
                     );
-                
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
             IsActive = true;
         }
