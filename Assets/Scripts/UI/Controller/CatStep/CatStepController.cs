@@ -2,7 +2,6 @@ using MoewMerge.Cats.Model;
 using MoewMerge.UI.Controller.CatStep.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace MoewMerge.UI.Controller.CatStep

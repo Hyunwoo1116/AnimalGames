@@ -1,8 +1,5 @@
 using MoewMerge.Localization.Model;
 using MoewMerge.Managers.Interfaces;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Localization.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

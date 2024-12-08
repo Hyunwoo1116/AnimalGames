@@ -1,6 +1,7 @@
 using MoewMerge.Managers;
 using MoewMerge.Managers.Interfaces;
 using MoewMerge.UI.Controller.GameEnd.Interfaces;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -17,7 +18,7 @@ namespace MoewMerge.UI.Controller.GameEnd
         private void Start()
         {
             GameRetryButton.onClick.AddListener(RestartGame);
-            SaveFileButton.onClick.AddListener(SaveResultImage);
+            SaveFileButton.onClick.AddListener(ShareResult);
         }
 
         private void RestartGame()
@@ -25,9 +26,17 @@ namespace MoewMerge.UI.Controller.GameEnd
             GameManager.ReStartGame();
             Debug.Log("RESTART");
         }
-        private void SaveResultImage()
+        private void ShareResult()
         {
+            Texture2D texture = (Texture2D) ResultRawImage.texture;
 
+            byte[] array = texture.EncodeToPNG();
+            string path = Path.Combine(Application.temporaryCachePath, "ShareImage.png");
+            File.WriteAllBytes(path, array);
+            new NativeShare().AddFile(path)
+            .SetSubject("Subject goes here").SetText("Hello world!").SetUrl("https://github.com/yasirkula/UnityNativeShare")
+            .SetCallback((result, shareTarget) => Debug.Log("Share result: " + result + ", selected app: " + shareTarget))
+            .Share();
         }
         public void SetResultTexture(Texture2D texture)
         {
