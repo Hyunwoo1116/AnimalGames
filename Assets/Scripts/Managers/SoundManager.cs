@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using Zenject;
 
 
 namespace MoewMerge.Managers
@@ -19,6 +20,7 @@ namespace MoewMerge.Managers
         public AudioClip backgroundClip;
         public AudioClip effectClipInstance;
         public AudioClip effectClipMerge;
+        [Inject] public IGameManager GameManager;
 
         public void PlayMergeSound()
         {
@@ -61,23 +63,23 @@ namespace MoewMerge.Managers
                 await Task.Delay(10);
             }
         }
-        public bool GetEffectSoundEnabled() => GameManager.Instance.GetEffectSoundEnabled();
-        public bool GetBackgroundSoundEnabled() => GameManager.Instance.GetBackgroundSoundEnabled();
-        public bool GetVibrateEnabled() => GameManager.Instance.GetVibrateEnabled();
-        public bool SetEffectSoundEnabled(bool enabled) => GameManager.Instance.SetEffectSoundEnabled(enabled);
-        public bool SetBackgroundSoundEnabled(bool enabled) => GameManager.Instance.SetBackgroundSoundEnabled(enabled);
-        public bool SetVibrateEnabled(bool enabled) => GameManager.Instance.SetVibrateEnabled(enabled);
+        public bool GetEffectSoundEnabled() => GameManager.GetEffectSoundEnabled();
+        public bool GetBackgroundSoundEnabled() => GameManager.GetBackgroundSoundEnabled();
+        public bool GetVibrateEnabled() => GameManager.GetVibrateEnabled();
+        public bool SetEffectSoundEnabled(bool enabled) => GameManager.SetEffectSoundEnabled(enabled);
+        public bool SetBackgroundSoundEnabled(bool enabled) => GameManager.SetBackgroundSoundEnabled(enabled);
+        public bool SetVibrateEnabled(bool enabled) => GameManager.SetVibrateEnabled(enabled);
 
         public bool GetSoundConfig(SoundConfigType soundConfigType)
         {
             switch (soundConfigType)
             {
                 case SoundConfigType.Effect:
-                    return GameManager.Instance.GetEffectSoundEnabled();
+                    return GameManager.GetEffectSoundEnabled();
                 case SoundConfigType.Background:
-                    return GameManager.Instance.GetBackgroundSoundEnabled();
+                    return GameManager.GetBackgroundSoundEnabled();
                 case SoundConfigType.Vibrate:
-                    return GameManager.Instance.GetVibrateEnabled();
+                    return GameManager.GetVibrateEnabled();
             }
             return false;
         }
@@ -100,7 +102,7 @@ namespace MoewMerge.Managers
         {
             try
             {
-                GameManager.Instance.SaveGameData();
+                GameManager.SaveGameData();
                 return true;
             } catch (Exception error)
             {

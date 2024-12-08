@@ -45,7 +45,7 @@ namespace MoewMerge.Animals
         // Update is called once per frame
         async void Update()
         {
-            if (EventSystem.current.currentSelectedGameObject)
+            if (EventSystem.current.currentSelectedGameObject || !GameManager.IsPlaying())
             {
                 return;
             }

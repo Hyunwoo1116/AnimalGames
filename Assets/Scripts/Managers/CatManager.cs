@@ -10,24 +10,22 @@ using UnityEngine;
 using MoewMerge.Animals;
 using Random = UnityEngine.Random;
 using MoewMerge.Cats.Model;
+using Unity.Plastic.Antlr3.Runtime.Misc;
+using static PlasticPipe.Server.MonitorStats;
+using Zenject;
 
 namespace MoewMerge.Managers
 {
     public class CatManager : MonoBehaviour, ICatManager
     {
+        [Inject] IGameManager GameManager;
 
         public List<Cat> Cats = new List<Cat>();
-
-        // Start is called before the first frame update
-
         public Transform NextCatTransform;
         public Transform GameArea;
-
         public Cat CurrentCat;
         public Cat NextCat;
-
         public Queue<CatCreateModel> catQueue = new Queue<CatCreateModel>();
-
         public SoundManager SoundManager;
         public CatStepController CatStepController;
         private Cat GetRandomCats()
@@ -35,10 +33,12 @@ namespace MoewMerge.Managers
             int RandomIndex = Random.Range(0, 5);
 
             Cat cat = Instantiate(Cats[RandomIndex]);
-            cat.SetDependency(GameManager.Instance, SoundManager);
+            cat.SetDependency(GameManager, SoundManager);
+            
             CatMerge catMerge = cat.GetComponent<CatMerge>();
             catMerge.CatLevel = (CatLevel)RandomIndex;
-            catMerge.CatManager = this;
+            catMerge.SetDependency(GameManager, this);
+
             return cat;
         }
 
@@ -94,16 +94,16 @@ namespace MoewMerge.Managers
                 SoundManager.PlayMergeSound();
                 CatStepController.PlayCatMerge(createModel.catLevel);
                 Cat cat = Instantiate(Cats[(int)createModel.catLevel], GameArea);
-                cat.SetDependency(GameManager.Instance, SoundManager);
+                cat.SetDependency(GameManager, SoundManager);
                 cat.transform.position = createModel.createPosition;
                 cat.RigidBody.simulated = true;
                 cat.enabled = false;
 
                 CatMerge catMerge = cat.GetComponent<CatMerge>();
-                catMerge.CatManager = this;
+                catMerge.SetDependency(GameManager, this);
                 catMerge.CatLevel = createModel.catLevel;
 
-                GameManager.Instance.AddGameScore(createModel.catLevel);
+                GameManager.AddGameScore(createModel.catLevel);
                 cat.transform.localScale = Vector3.one * cat.OriginScale;
 
                 return true;

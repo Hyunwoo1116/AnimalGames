@@ -11,6 +11,8 @@ namespace MoewMerge.Zenject
         {
             Container.Bind<ISoundConfigManager>().To<SoundManager>().FromComponentInHierarchy().AsCached();
             Container.Bind<ILanguageManager>().To<LanguageManager>().FromComponentInHierarchy().AsCached();
+            Container.Bind<IScreenCaptureManager>().To<ScreenCaptureManager>().FromComponentInHierarchy().AsCached();
+            Container.Bind<IGameManager>().To<GameManager>().FromComponentInHierarchy().AsCached();
         }
     }
 }
