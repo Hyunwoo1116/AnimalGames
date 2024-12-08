@@ -4,6 +4,7 @@ using MoewMerge.Localization.Model;
 using MoewMerge.Managers.Interfaces;
 using MoewMerge.UI.Controller.GameEnd.Interfaces;
 using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -14,11 +15,11 @@ using Zenject;
 
 namespace MoewMerge.Managers
 {
-    public class GameManager : MonoBehaviour, IGameManager
+    public class GameManager : MonoBehaviour, IGameManager, ISoundConfigManager
     {
         private bool isPlaying = true;
         public MoewParameter gameDatas;
-        
+
         private int gameScore;
         public int GameScore
         {
@@ -48,19 +49,21 @@ namespace MoewMerge.Managers
              QualitySettings.vSyncCount = 1;
 #endif
             LoadOrCreateGameData();
+            SoundManager.UpdateSoundSetting();
             OnGameStart();
         }
 
         [Inject] public IScreenCaptureManager ScreenCaptureManager;
         [Inject] public IGameEndController GameEndController;
-        [Inject] public ILanguageManager LanguageManager { get; set; } 
+        [Inject] public ILanguageManager LanguageManager { get; set; }
 
         public bool GetEffectSoundEnabled() => gameDatas.EffectSound;
         public bool GetBackgroundSoundEnabled() => gameDatas.BackgroundSound;
         public bool GetVibrateEnabled() => gameDatas.Vibrate;
-        public bool SetEffectSoundEnabled(bool enabled) => gameDatas.EffectSound = enabled;
-        public bool SetBackgroundSoundEnabled(bool enabled) => gameDatas.BackgroundSound = enabled;
-        public bool SetVibrateEnabled(bool enabled) => gameDatas.Vibrate = enabled;
+
+        public void SetEffectSoundEnabled(bool enabled) => gameDatas.EffectSound = enabled;
+        public void SetBackgroundSoundEnabled(bool enabled) => gameDatas.BackgroundSound = enabled;
+        public void SetVibrateEnabled(bool enabled) => gameDatas.Vibrate = enabled;
 
         private void LoadOrCreateGameData()
         {
@@ -90,9 +93,6 @@ namespace MoewMerge.Managers
             Debug.Log($"SaveDatas{datas}");
             File.WriteAllText(MoewMergeConst.MoewGameDataFile, datas);
         }
-
-
-
         public void NextCats()
         {
             CatManager.OnNextCat();
@@ -104,8 +104,8 @@ namespace MoewMerge.Managers
         {
             GameScore = 0;
             CatManager.OnGameStart();
+            SoundManager.PlayBackgroundSound();
             Time.timeScale = 1f;
-            //SoundManager.PlayBackgroundSound();
         }
 
         public void AddGameScore(CatLevel instanceCatLevel)
@@ -147,6 +147,54 @@ namespace MoewMerge.Managers
             return topPosition = topPosition.Equals(float.MinValue) ? Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height) - new Vector2(0f, 471)).y : topPosition;
         }
         public bool IsPlaying() => isPlaying;
+
+
+        #region SoundDatas Setup
+        public bool GetSoundConfig(SoundConfigType soundConfigType)
+        {
+            switch (soundConfigType)
+            {
+                case SoundConfigType.Effect:
+                    return GetEffectSoundEnabled();
+                case SoundConfigType.Background:
+                    return GetBackgroundSoundEnabled();
+                case SoundConfigType.Vibrate:
+                    return GetVibrateEnabled();
+            }
+            return false;
+        }
+
+        public void SetSoundConfig(SoundConfigType soundConfigType, bool enabled)
+        {
+            switch (soundConfigType)
+            {
+                case SoundConfigType.Effect:
+                    SetEffectSoundEnabled(enabled);
+                    break;
+                case SoundConfigType.Background:
+                    SetBackgroundSoundEnabled(enabled);
+                    break;
+                case SoundConfigType.Vibrate:
+                    SetVibrateEnabled(enabled);
+                    break;
+            }
+            SoundManager.UpdateSoundSetting();
+        }
+
+        public bool SaveSoundConfig()
+        {
+            try
+            {
+                SaveGameData();
+                return true;
+            }
+            catch (Exception error)
+            {
+                Debug.LogError(error.Message);
+                return false;
+            }
+        }
+        #endregion
     }
 
 }

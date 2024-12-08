@@ -8,6 +8,7 @@ namespace MoewMerge.Managers.Interfaces
     public interface ISoundManager
     {
         public Task PlayInstanceSound();
+        public void UpdateSoundSetting();
     }
 }
 
