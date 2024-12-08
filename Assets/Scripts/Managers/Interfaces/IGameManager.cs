@@ -1,7 +1,6 @@
 
 using MoewMerge.Cats.Model;
 using MoewMerge.Localization.Model;
-using UnityEditor.VisionOS;
 using UnityEngine;
 
 namespace MoewMerge.Managers.Interfaces

@@ -2,16 +2,12 @@ using MoewMerge.Animals.Models;
 using MoewMerge.Managers.Interfaces;
 using MoewMerge.UI.Controller.CatStep;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using MoewMerge.Animals;
 using Random = UnityEngine.Random;
 using MoewMerge.Cats.Model;
-using Unity.Plastic.Antlr3.Runtime.Misc;
-using static PlasticPipe.Server.MonitorStats;
 using Zenject;
 
 namespace MoewMerge.Managers
