@@ -1,10 +1,12 @@
-using MoewMerge.Managers;
+using MoewMerge.Managers.Interfaces;
 using UnityEngine;
+using Zenject;
 
 namespace MoewMerge.UI.Page.Settings
 {
     public class SettingsPage : MonoBehaviour
     {
+        [Inject] public IGameManager GameManager;
 
         private void OnEnable()
         {
@@ -12,7 +14,7 @@ namespace MoewMerge.UI.Page.Settings
         }
         private void OnDisable()
         {
-            GameManager.Instance.SaveGameData();
+            GameManager.SaveGameData();
             Time.timeScale = 1f;
         }
 

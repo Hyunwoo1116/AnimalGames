@@ -1,12 +1,15 @@
 using MoewMerge.Managers;
+using MoewMerge.Managers.Interfaces;
 using MoewMerge.UI.Controller.GameEnd.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace MoewMerge.UI.Controller.GameEnd
 {
     public class GameEndController : MonoBehaviour, IGameEndController
     {
+        [Inject] IGameManager GameManager;
         public RawImage ResultRawImage;
         public Button GameRetryButton;
         public Button SaveFileButton;
@@ -19,7 +22,7 @@ namespace MoewMerge.UI.Controller.GameEnd
 
         private void RestartGame()
         {
-            GameManager.Instance.ReStartGame();
+            GameManager.ReStartGame();
             Debug.Log("RESTART");
         }
         private void SaveResultImage()

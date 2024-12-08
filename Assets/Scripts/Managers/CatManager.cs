@@ -12,12 +12,13 @@ using Random = UnityEngine.Random;
 using MoewMerge.Cats.Model;
 using Unity.Plastic.Antlr3.Runtime.Misc;
 using static PlasticPipe.Server.MonitorStats;
+using Zenject;
 
 namespace MoewMerge.Managers
 {
     public class CatManager : MonoBehaviour, ICatManager
     {
-
+        [Inject] IGameManager GameManager;
         public List<Cat> Cats = new List<Cat>();
 
         public List<Cat> InstanceCats = new List<Cat>();
@@ -39,7 +40,7 @@ namespace MoewMerge.Managers
 
             Cat cat = Instantiate(Cats[RandomIndex]);
             InstanceCats.Add(cat);
-            cat.SetDependency(GameManager.Instance, SoundManager);
+            cat.SetDependency(GameManager, SoundManager);
             CatMerge catMerge = cat.GetComponent<CatMerge>();
             catMerge.CatLevel = (CatLevel)RandomIndex;
             catMerge.CatManager = this;
@@ -98,7 +99,7 @@ namespace MoewMerge.Managers
                 SoundManager.PlayMergeSound();
                 CatStepController.PlayCatMerge(createModel.catLevel);
                 Cat cat = Instantiate(Cats[(int)createModel.catLevel], GameArea);
-                cat.SetDependency(GameManager.Instance, SoundManager);
+                cat.SetDependency(GameManager, SoundManager);
                 cat.transform.position = createModel.createPosition;
                 cat.RigidBody.simulated = true;
                 cat.enabled = false;
@@ -107,7 +108,7 @@ namespace MoewMerge.Managers
                 catMerge.CatManager = this;
                 catMerge.CatLevel = createModel.catLevel;
 
-                GameManager.Instance.AddGameScore(createModel.catLevel);
+                GameManager.AddGameScore(createModel.catLevel);
                 cat.transform.localScale = Vector3.one * cat.OriginScale;
 
                 return true;

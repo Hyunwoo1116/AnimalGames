@@ -93,7 +93,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 1851734664370604035}
-  - {fileID: 5727998648280365729}
+  - {fileID: 1986706998487329189}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8351189476193213248}
-  - component: {fileID: 5727998648280365729}
+  - component: {fileID: 1986706998487329189}
   m_Layer: 0
   m_Name: MoewMergeControllerMonoInstaller
   m_TagString: Untagged
@@ -143,7 +143,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1569159017900910992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5727998648280365729
+--- !u!114 &1986706998487329189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,6 +152,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8031192487603976792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9cdcb5138f759443a7663a11425997a, type: 3}
+  m_Script: {fileID: 11500000, guid: 485fa03e8e20a06489f7215d1c3ad766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -1,11 +1,10 @@
-using MoewMerge.Managers;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using MoewMerge.Managers.Interfaces;
 using UnityEngine;
+using Zenject;
 
 public class EndCollider : MonoBehaviour
 {
+    [Inject] IGameManager GameManager;
     private BoxCollider2D boxCollider;
 
     public BoxCollider2D BoxCollider => boxCollider ??= this.GetComponent<BoxCollider2D>();
@@ -28,7 +27,7 @@ public class EndCollider : MonoBehaviour
         if (catMerge.IsActive)
         {
             if ((catMerge.transform.position.y - gameObject.transform.position.y) > 0)
-                GameManager.Instance.OnGameEnd();
+                GameManager.OnGameEnd();
         }
         else
         {
