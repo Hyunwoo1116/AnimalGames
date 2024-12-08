@@ -16,6 +16,7 @@ namespace MoewMerge.Managers
 {
     public class GameManager : MonoBehaviour, IGameManager
     {
+        private bool isPlaying = true;
         public MoewParameter gameDatas;
         
         private int gameScore;
@@ -32,13 +33,8 @@ namespace MoewMerge.Managers
                 return gameScore;
             }
         }
-
-        private static GameManager instance = null;
-
-
         [SerializeField]
         private TextMeshProUGUI gameScoreUI;
-
         [Header("Managers")]
         public SoundManager SoundManager;
         public CatManager CatManager;
@@ -58,6 +54,7 @@ namespace MoewMerge.Managers
         [Inject] public IScreenCaptureManager ScreenCaptureManager;
         [Inject] public IGameEndController GameEndController;
         [Inject] public ILanguageManager LanguageManager { get; set; } 
+
         public bool GetEffectSoundEnabled() => gameDatas.EffectSound;
         public bool GetBackgroundSoundEnabled() => gameDatas.BackgroundSound;
         public bool GetVibrateEnabled() => gameDatas.Vibrate;
@@ -123,18 +120,17 @@ namespace MoewMerge.Managers
 
         public async void OnGameEnd()
         {
+            isPlaying = false;
+            Time.timeScale = 0f;
             Texture2D texture = await ScreenCaptureManager.GetScreenTexture();
             GameEndController.SetResultTexture(texture);
             GameEndController.Show();
-
             Debug.Log("OnGameEnd");
         }
 
         public float GetLeftEndPosition(Vector2 endObjectPosition)
         {
-
             return Camera.main.ScreenToWorldPoint(Vector2.zero + endObjectPosition).x;
-
         }
 
         public float GetRightEndPosition(Vector2 endObjectPosition)
@@ -142,20 +138,15 @@ namespace MoewMerge.Managers
             return Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height) - endObjectPosition).x;
 
         }
-
-        public async void ReStartGame()
+        public void ReStartGame()
         {
             SceneManager.LoadScene(0);
         }
-        private void ClearGame()
-        {
-            CatManager.ClearInstanceCats();
-        }
-
         public float GetTopPosition()
         {
             return topPosition = topPosition.Equals(float.MinValue) ? Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height) - new Vector2(0f, 471)).y : topPosition;
         }
+        public bool IsPlaying() => isPlaying;
     }
 
 }

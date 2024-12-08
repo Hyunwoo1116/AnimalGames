@@ -11,7 +11,9 @@ public class CatMerge : MonoBehaviour
 {
     [field:SerializeField]
     public CatLevel CatLevel { get; set; }
-    public ICatManager CatManager { get; set; }
+
+    private ICatManager CatManager { get; set; }
+    private IGameManager GameManager { get; set; }
 
     public bool IsActive = false;
     private bool IsMerge = false;
@@ -19,6 +21,8 @@ public class CatMerge : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!GameManager.IsPlaying())
+            return;
         if (collision.transform.TryGetComponent(out CatMerge targetCat))
         {
             if (CatLevel.Equals(targetCat.CatLevel) && !IsMerge)
@@ -34,5 +38,10 @@ public class CatMerge : MonoBehaviour
             }
             IsActive = true;
         }
+    }
+    public void SetDependency(IGameManager GameManager, ICatManager CatManager)
+    {
+        this.GameManager = GameManager;
+        this.CatManager = CatManager;
     }
 }

@@ -19,19 +19,13 @@ namespace MoewMerge.Managers
     public class CatManager : MonoBehaviour, ICatManager
     {
         [Inject] IGameManager GameManager;
+
         public List<Cat> Cats = new List<Cat>();
-
-        public List<Cat> InstanceCats = new List<Cat>();
-        // Start is called before the first frame update
-
         public Transform NextCatTransform;
         public Transform GameArea;
-
         public Cat CurrentCat;
         public Cat NextCat;
-
         public Queue<CatCreateModel> catQueue = new Queue<CatCreateModel>();
-
         public SoundManager SoundManager;
         public CatStepController CatStepController;
         private Cat GetRandomCats()
@@ -39,11 +33,12 @@ namespace MoewMerge.Managers
             int RandomIndex = Random.Range(0, 5);
 
             Cat cat = Instantiate(Cats[RandomIndex]);
-            InstanceCats.Add(cat);
             cat.SetDependency(GameManager, SoundManager);
+            
             CatMerge catMerge = cat.GetComponent<CatMerge>();
             catMerge.CatLevel = (CatLevel)RandomIndex;
-            catMerge.CatManager = this;
+            catMerge.SetDependency(GameManager, this);
+
             return cat;
         }
 
@@ -105,7 +100,7 @@ namespace MoewMerge.Managers
                 cat.enabled = false;
 
                 CatMerge catMerge = cat.GetComponent<CatMerge>();
-                catMerge.CatManager = this;
+                catMerge.SetDependency(GameManager, this);
                 catMerge.CatLevel = createModel.catLevel;
 
                 GameManager.AddGameScore(createModel.catLevel);
@@ -126,19 +121,6 @@ namespace MoewMerge.Managers
             CatCreateModel duplicateCheck = catQueue.FirstOrDefault(cat => cat.collisionObject.Equals(createModel.source) || cat.source.Equals(createModel));
             if (duplicateCheck is null)
                 catQueue.Enqueue(createModel);
-        }
-
-        public void ClearInstanceCats()
-        {
-            catQueue.Clear();
-            CurrentCat = null;
-            NextCat = null;
-            InstanceCats.ForEach(cat =>
-            {
-                if ( cat is not null)
-                    DestroyImmediate(cat.gameObject);
-            });
-            InstanceCats.Clear();
         }
     }
 

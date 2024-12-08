@@ -10,8 +10,6 @@ namespace MoewMerge.Managers.Interfaces
         bool OnLevelUpCat(CatCreateModel createCat);
 
         void AddCreateQueue(CatCreateModel createModel);
-
-        public void ClearInstanceCats();
     }
 
 }

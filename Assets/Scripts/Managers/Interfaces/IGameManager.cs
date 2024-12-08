@@ -15,6 +15,7 @@ namespace MoewMerge.Managers.Interfaces
         public void AddGameScore(CatLevel instanceCatLevel);
         public float GetTopPosition();
         public void SaveGameData();
+        public bool IsPlaying();
         #endregion
         #region Sound
         bool GetEffectSoundEnabled();
