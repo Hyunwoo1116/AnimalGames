@@ -22,8 +22,44 @@ MonoBehaviour:
     m_Localized: "\uD14C\uC2A4\uD2B8"
     m_Metadata:
       m_Items: []
-  - m_Id: 2676875825152
-    m_Localized: New Text
+  - m_Id: 2547981265637376
+    m_Localized: "\uC810\uC218"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981341134848
+    m_Localized: "\uB2E4\uC2DC \uC2DC\uC791"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981341134849
+    m_Localized: "\uACC4\uC18D \uD558\uAE30"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329152
+    m_Localized: "\uC124\uC815"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329153
+    m_Localized: "\uC5B8\uC5B4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329154
+    m_Localized: "\uC0AC\uC6B4\uB4DC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329155
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329156
+    m_Localized: "\uACF5\uC720"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329157
+    m_Localized: "\uD55C\uAD6D\uC5B4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329158
+    m_Localized: "\uC601\uC5B4"
     m_Metadata:
       m_Items: []
   references:
