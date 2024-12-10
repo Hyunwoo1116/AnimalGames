@@ -10,12 +10,13 @@ using Zenject;
 
 namespace MoewMerge.Managers
 {
-    public class SoundManager : MonoBehaviour, ISoundManager, ISoundConfigManager
+    public class SoundManager : MonoBehaviour, ISoundManager
     {
         [Header("Source")]
         [SerializeField] private AudioSource effectAudio;
         [SerializeField] private AudioSource backgroundAudio;
 
+        private bool enableVibrate;
         [Header("Resource")]
         public AudioClip backgroundClip;
         public AudioClip effectClipInstance;
@@ -34,17 +35,17 @@ namespace MoewMerge.Managers
         }
 
 
-        public void SetAudioMute(SoundType type, bool isMute)
+        public void SetAudioMute(SoundType type, bool isPlay)
         {
             switch (type)
             {
                 case SoundType.None:
                     break;
                 case SoundType.Effect:
-                    effectAudio.mute = !isMute;
+                    effectAudio.mute = !isPlay;
                     break;
                 case SoundType.Background:
-                    backgroundAudio.mute = !isMute;
+                    backgroundAudio.mute = !isPlay;
                     break;
             }
         }
@@ -55,62 +56,21 @@ namespace MoewMerge.Managers
         }
         private async Task WaitSoundLength()
         {
-            float clipLength = effectClipInstance.length * 1.1f;
+            float clipLength = effectClipInstance.length * 3f;
             float delayTime = 0f;
             while (delayTime <= clipLength)
             {
-                delayTime += 0.01f;
-                await Task.Delay(10);
+                delayTime += Time.deltaTime;
+                await Task.Yield();
             }
         }
-        public bool GetEffectSoundEnabled() => GameManager.GetEffectSoundEnabled();
-        public bool GetBackgroundSoundEnabled() => GameManager.GetBackgroundSoundEnabled();
-        public bool GetVibrateEnabled() => GameManager.GetVibrateEnabled();
-        public bool SetEffectSoundEnabled(bool enabled) => GameManager.SetEffectSoundEnabled(enabled);
-        public bool SetBackgroundSoundEnabled(bool enabled) => GameManager.SetBackgroundSoundEnabled(enabled);
-        public bool SetVibrateEnabled(bool enabled) => GameManager.SetVibrateEnabled(enabled);
-
-        public bool GetSoundConfig(SoundConfigType soundConfigType)
+        public void UpdateSoundSetting()
         {
-            switch (soundConfigType)
-            {
-                case SoundConfigType.Effect:
-                    return GameManager.GetEffectSoundEnabled();
-                case SoundConfigType.Background:
-                    return GameManager.GetBackgroundSoundEnabled();
-                case SoundConfigType.Vibrate:
-                    return GameManager.GetVibrateEnabled();
-            }
-            return false;
+            backgroundAudio.mute = !GameManager.GetBackgroundSoundEnabled();
+            effectAudio.mute = !GameManager.GetEffectSoundEnabled();
+            enableVibrate = GameManager.GetVibrateEnabled();
         }
-
-        public bool SetSoundConfig(SoundConfigType soundConfigType, bool enabled)
-        {
-            switch (soundConfigType)
-            {
-                case SoundConfigType.Effect:
-                    return SetEffectSoundEnabled(enabled);
-                case SoundConfigType.Background:
-                    return SetBackgroundSoundEnabled(enabled);
-                case SoundConfigType.Vibrate:
-                    return SetVibrateEnabled(enabled);
-            }
-            return false;
-        }
-
-        public bool SaveSoundConfig()
-        {
-            try
-            {
-                GameManager.SaveGameData();
-                return true;
-            } catch (Exception error)
-            {
-                Debug.LogError(error.Message);
-                return false;
-            }
-
-        }
+        public bool EnableVibrate() => enableVibrate;
     }
     public enum SoundType
     {

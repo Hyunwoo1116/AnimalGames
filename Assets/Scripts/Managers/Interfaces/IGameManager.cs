@@ -20,9 +20,9 @@ namespace MoewMerge.Managers.Interfaces
         bool GetEffectSoundEnabled();
         bool GetBackgroundSoundEnabled();
         bool GetVibrateEnabled();
-        bool SetEffectSoundEnabled(bool enable);
-        bool SetBackgroundSoundEnabled(bool enable);
-        bool SetVibrateEnabled(bool enable);
+        void SetEffectSoundEnabled(bool enable);
+        void SetBackgroundSoundEnabled(bool enable);
+        void SetVibrateEnabled(bool enable);
         #endregion
         #region Locale
         Locales SetLocale(Locales Locale);

@@ -1,9 +1,7 @@
 using MoewMerge.Managers.Interfaces;
-using System.Collections;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace MoewMerge.Animals
 {
@@ -45,13 +43,13 @@ namespace MoewMerge.Animals
         // Update is called once per frame
         async void Update()
         {
+            await ReadyDependency();
             if (EventSystem.current.currentSelectedGameObject || !GameManager.IsPlaying())
             {
                 return;
             }
             if (Input.GetMouseButton(0) && !RigidBody.simulated)
             {
-
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 minBorderX = minBorderX.Equals(float.MinValue) ? GameManager.GetLeftEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : minBorderX;
                 maxBorderX = maxBorderX.Equals(float.MinValue) ? GameManager.GetRightEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : maxBorderX;
@@ -67,6 +65,10 @@ namespace MoewMerge.Animals
             if (Input.GetMouseButtonUp(0) && !RigidBody.simulated)
             {
                 DropDownCat();
+                if (SoundManager.EnableVibrate())
+                {
+                    Handheld.Vibrate();
+                }
             }
         }
 
@@ -78,6 +80,13 @@ namespace MoewMerge.Animals
             GameManager.NextCats();
             GameManager.AddGameScore(CatMerge.CatLevel);
             this.enabled = false;
+        }
+        private async Task ReadyDependency()
+        {
+            while(GameManager is null)
+            {
+                await Task.Yield();
+            }
         }
         // ³Ø½ºÆ® UI
         public void Ready()

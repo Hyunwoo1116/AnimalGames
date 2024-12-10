@@ -28,8 +28,6 @@ namespace MoewMerge.UI.Controller.CatStep
             AnimatorStateInfo info = animator.GetCurrentAnimatorStateInfo(0);
             if (isPlaying)
             {
-                Debug.Log($"{info.shortNameHash} + : {gameObject.name}");
-                
                 if (info.shortNameHash.Equals(hash))
                     isPlaying = false;
             }
