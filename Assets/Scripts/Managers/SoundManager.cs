@@ -70,6 +70,7 @@ namespace MoewMerge.Managers
             effectAudio.mute = !GameManager.GetEffectSoundEnabled();
             enableVibrate = GameManager.GetVibrateEnabled();
         }
+        public bool EnableVibrate() => enableVibrate;
     }
     public enum SoundType
     {

@@ -50,7 +50,6 @@ namespace MoewMerge.Animals
             }
             if (Input.GetMouseButton(0) && !RigidBody.simulated)
             {
-                Handheld.Vibrate();
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 minBorderX = minBorderX.Equals(float.MinValue) ? GameManager.GetLeftEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : minBorderX;
                 maxBorderX = maxBorderX.Equals(float.MinValue) ? GameManager.GetRightEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : maxBorderX;
@@ -66,6 +65,10 @@ namespace MoewMerge.Animals
             if (Input.GetMouseButtonUp(0) && !RigidBody.simulated)
             {
                 DropDownCat();
+                if (SoundManager.EnableVibrate())
+                {
+                    Handheld.Vibrate();
+                }
             }
         }
 

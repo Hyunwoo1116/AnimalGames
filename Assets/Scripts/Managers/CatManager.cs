@@ -102,6 +102,10 @@ namespace MoewMerge.Managers
                 GameManager.AddGameScore(createModel.catLevel);
                 cat.transform.localScale = Vector3.one * cat.OriginScale;
 
+                if (SoundManager.EnableVibrate())
+                {
+                    Handheld.Vibrate();
+                }
                 return true;
             }
             catch (Exception error)

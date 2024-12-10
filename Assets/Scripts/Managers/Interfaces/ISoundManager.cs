@@ -9,6 +9,7 @@ namespace MoewMerge.Managers.Interfaces
     {
         public Task PlayInstanceSound();
         public void UpdateSoundSetting();
+        public bool EnableVibrate();
     }
 }
 
