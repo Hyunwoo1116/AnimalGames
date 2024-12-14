@@ -19,8 +19,44 @@ MonoBehaviour:
     m_Key: test
     m_Metadata:
       m_Items: []
-  - m_Id: 2676875825152
-    m_Key: AnimalsGrow/LocalizationTest/Test
+  - m_Id: 2547981265637376
+    m_Key: Score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981341134848
+    m_Key: Retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981341134849
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329152
+    m_Key: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329153
+    m_Key: LanguageSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329154
+    m_Key: SoundSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329155
+    m_Key: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329156
+    m_Key: Share
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329157
+    m_Key: Korean
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2547981345329158
+    m_Key: English
     m_Metadata:
       m_Items: []
   m_Metadata:
