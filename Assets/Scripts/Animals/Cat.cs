@@ -21,8 +21,8 @@ namespace MoewMerge.Animals
 
         public float OriginScale;
         private float ReadyScale = 30f;
-        private float minBorderX = float.MinValue;
-        private float maxBorderX = float.MinValue;
+        public float minBorderX = float.MinValue;
+        public float maxBorderX = float.MinValue;
 
         private IGameManager GameManager;
         private ISoundManager SoundManager;
@@ -68,8 +68,8 @@ namespace MoewMerge.Animals
         private Vector3 CalculateNextPosition()
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            minBorderX = minBorderX.Equals(float.MinValue) ? GameManager.GetLeftEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : minBorderX;
-            maxBorderX = maxBorderX.Equals(float.MinValue) ? GameManager.GetRightEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : maxBorderX;
+            minBorderX = /*minBorderX.Equals(float.MinValue) ? */GameManager.GetLeftEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) /*: minBorderX*/;
+            maxBorderX = /*maxBorderX.Equals(float.MinValue) ? */GameManager.GetRightEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) /*: maxBorderX*/;
             mousePosition.x = Mathf.Clamp(mousePosition.x, minBorderX, maxBorderX);
             mousePosition.y = GameManager.GetTopPosition();
             Vector3 nextPosition = Vector3.Lerp(transform.position, mousePosition, 0.5f);
