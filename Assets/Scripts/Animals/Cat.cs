@@ -50,15 +50,8 @@ namespace MoewMerge.Animals
             }
             if (Input.GetMouseButton(0) && !RigidBody.simulated)
             {
-                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                minBorderX = minBorderX.Equals(float.MinValue) ? GameManager.GetLeftEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : minBorderX;
-                maxBorderX = maxBorderX.Equals(float.MinValue) ? GameManager.GetRightEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : maxBorderX;
-                mousePosition.x = Mathf.Clamp(mousePosition.x, minBorderX, maxBorderX);
-                mousePosition.y = GameManager.GetTopPosition();
-                Vector3 nextPosition = Vector3.Lerp(transform.position, mousePosition, 0.5f);
-                nextPosition.z = 0f;
-                transform.position = nextPosition;
-                RectTransform.anchoredPosition3D = new Vector3(RectTransform.anchoredPosition3D.x, RectTransform.anchoredPosition3D.y, RectTransform.anchoredPosition3D.z);
+                transform.position = CalculateNextPosition();
+                RectTransform.anchoredPosition3D = new Vector3(RectTransform.anchoredPosition3D.x, RectTransform.anchoredPosition3D.y, 0);
                 RigidBody.simulated = false;
             }
 
@@ -70,6 +63,18 @@ namespace MoewMerge.Animals
                     Handheld.Vibrate();
                 }
             }
+        }
+
+        private Vector3 CalculateNextPosition()
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            minBorderX = minBorderX.Equals(float.MinValue) ? GameManager.GetLeftEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : minBorderX;
+            maxBorderX = maxBorderX.Equals(float.MinValue) ? GameManager.GetRightEndPosition(Vector2.one * RectTransform.sizeDelta * transform.localScale / 2f) : maxBorderX;
+            mousePosition.x = Mathf.Clamp(mousePosition.x, minBorderX, maxBorderX);
+            mousePosition.y = GameManager.GetTopPosition();
+            Vector3 nextPosition = Vector3.Lerp(transform.position, mousePosition, 0.5f);
+            nextPosition.z = 0f;
+            return mousePosition;
         }
 
         private async void DropDownCat()
