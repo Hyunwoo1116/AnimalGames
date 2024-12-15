@@ -17,8 +17,18 @@ public class CatMerge : MonoBehaviour
 
     public bool IsActive = false;
     private bool IsMerge = false;
-    // Start is called before the first frame update
-    
+
+
+    #region Animation
+
+    private Rigidbody2D rigidybody;
+    public Rigidbody2D Rigidbody => rigidybody ??= this.GetComponent<Rigidbody2D>();
+
+    private Animator animator;
+    public Animator Animator => animator ??= this.GetComponent<Animator>();
+
+    #endregion
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!GameManager.IsPlaying())
@@ -36,6 +46,13 @@ public class CatMerge : MonoBehaviour
             }
             IsActive = true;
         }
+    }
+
+    private void Update()
+    {
+        if (!GameManager.IsPlaying())
+            return;
+        Animator.SetFloat("Move", Rigidbody.linearVelocity.magnitude);
     }
     public void SetDependency(IGameManager GameManager, ICatManager CatManager)
     {

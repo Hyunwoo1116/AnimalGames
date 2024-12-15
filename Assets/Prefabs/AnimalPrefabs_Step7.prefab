@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 5195126151236528128}
   - component: {fileID: -7542572952558242677}
   - component: {fileID: 7862389489160316479}
+  - component: {fileID: 7249790093355847279}
   m_Layer: 0
   m_Name: AnimalPrefabs_Step7
   m_TagString: Untagged
@@ -591,3 +592,25 @@ PolygonCollider2D:
       - {x: 2.2000778, y: 2.054704}
       - {x: 2.0773978, y: 2.1418786}
   m_UseDelaunayMesh: 0
+--- !u!95 &7249790093355847279
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8923091083653036277}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 305b13624b658174db3b2ef9af7ce7b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
