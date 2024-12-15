@@ -2,12 +2,14 @@
 using MoewMerge.GameModel;
 using MoewMerge.Localization.Model;
 using MoewMerge.Managers.Interfaces;
+using MoewMerge.UI.Canvas.Interfaces;
 using MoewMerge.UI.Controller.GameEnd.Interfaces;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -54,6 +56,7 @@ namespace MoewMerge.Managers
             OnGameStart();
         }
 
+        [Inject] public IGameCanvas GameCanvas;
         [Inject] public IScreenCaptureManager ScreenCaptureManager;
         [Inject] public IGameEndController GameEndController;
         [Inject] public ILanguageManager LanguageManager { get; set; }
@@ -129,14 +132,15 @@ namespace MoewMerge.Managers
             Debug.Log("OnGameEnd");
         }
 
-        public float GetLeftEndPosition(Vector2 endObjectPosition)
+        public float GetLeftEndPosition(Vector2 objectSize)
         {
-            return Camera.main.ScreenToWorldPoint(Vector2.zero + endObjectPosition).x;
+            return Camera.main.ScreenToWorldPoint(objectSize * GameCanvas.GetScaleFactor()).x;
         }
 
-        public float GetRightEndPosition(Vector2 endObjectPosition)
+        public float GetRightEndPosition(Vector2 objectSize)
         {
-            return Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height) - endObjectPosition).x;
+            Vector2 ScreenSize = new Vector2(Screen.width, Screen.height);
+            return Camera.main.ScreenToWorldPoint(ScreenSize - objectSize * GameCanvas.GetScaleFactor()).x;
 
         }
         public void ReStartGame()
