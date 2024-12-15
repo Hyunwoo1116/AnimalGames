@@ -39,7 +39,8 @@ namespace MoewMerge.Managers
         [Header("Managers")]
         public SoundManager SoundManager;
         public CatManager CatManager;
-
+        [field : SerializeField]
+        private RectTransform catStartRectTransform;
         private float topPosition = float.MinValue;
         private void Start()
         {
@@ -144,7 +145,17 @@ namespace MoewMerge.Managers
         }
         public float GetTopPosition()
         {
-            return topPosition = topPosition.Equals(float.MinValue) ? Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height) - new Vector2(0f, 471)).y : topPosition;
+            if ( topPosition.Equals(float.MinValue))
+            {
+                Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, catStartRectTransform.position);
+                float StartPosition = Camera.main.ScreenToWorldPoint(screenPos).y;
+                topPosition = StartPosition;
+                return topPosition;
+            }
+            else
+            {
+                return topPosition;
+            }
         }
         public bool IsPlaying() => isPlaying;
 
