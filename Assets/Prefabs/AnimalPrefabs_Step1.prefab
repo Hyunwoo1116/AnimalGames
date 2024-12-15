@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0a29823d9077e49942dfca66ef0a1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OriginScale: 10
+  OriginScale: 20
   CatGauidLine: {fileID: 680183826429073761}
   CatOutline: {fileID: 4302368730413985899}
 --- !u!114 &2940368755996540769
