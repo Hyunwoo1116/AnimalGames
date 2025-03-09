@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Google Sheets Service
   m_EditorClassIdentifier: 
   m_ApiKey: 
-  m_ClientId: 937619408853-flivnp4dv74ijvjarn5aedppivi97rk6.apps.googleusercontent.com
-  m_ClientSecret: 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
+  m_ClientId: 
+  m_ClientSecret: 
   m_AuthenticationType: 1
   m_ApplicationName: AnimalGames
   m_NewSheetProperties:
